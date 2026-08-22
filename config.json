@@ -1,0 +1,9 @@
+{
+  "port": 3000,
+  "bindHost": "127.0.0.1",
+  "pingCount": 5,
+  "pingTimeoutMs": 2000,
+  "traceMaxHops": 15,
+  "historyLimit": 25,
+  "dnsServers": ["8.8.8.8", "1.1.1.1"]
+}

@@ -1,0 +1,108 @@
+===============================================================
+ NETFAULT ANALYZER - DATA COMMUNICATION THEORY (Viva Prep)
+===============================================================
+
+ 1) RSSI AND SIGNAL STRENGTH
+-------------------------------
+- RSSI = Received Signal Strength Indicator - the adapter's radio chip
+  measures the power received at the antenna in dBm.
+- dBm scale: -30 dBm (very strong) to -90 dBm (no signal).
+- Windows maps this dBm value onto a linear 0-100% scale
+  (the mapping is driver/NDIS defined).
+- A signal of 84% means: the received power is at 84/100 on that
+  adapter's own scale - it is NOT compared to any device.
+- Approx conversion: 100% ~ -50 dBm, 75% ~ -60 dBm, 50% ~ -70 dBm,
+  25% ~ -80 dBm, 10% ~ -86 dBm.
+
+ 2) JITTER
+-----------
+- Jitter = variation of RTT (round trip time) = max RTT - min RTT.
+- Stable network: low jitter (< 20ms). On WiFi, interference causes
+  high jitter because 802.11 CSMA/CA introduces retransmissions and backoff.
+- High signal + high jitter = a strong signature of interference.
+
+ 3) DHCP AND APIPA
+-------------------
+- DHCP: the client obtains its IP/gateway/DNS from the router.
+- If the DHCP server is down, the client takes a 169.254.x.x (APIPA)
+  address that only works on the local link - no internet.
+- Therefore, seeing an APIPA address immediately diagnoses:
+  "DHCP Server Unreachable".
+
+ 4) DNS FAILURE
+-----------------
+- Ping works with an IP (ICMP), but DNS does not resolve:
+  the network layer is fine, the application layer (DNS) is at fault.
+- Signature: ping 8.8.8.8 OK + nslookup fails -> DNS misconfiguration.
+
+ 5) TRACEROUTE
+---------------
+- Each hop responds via TTL-based probing.
+- 100% loss at hop N with no later responses = fault on that router/link.
+- Loss at hop N but later hops OK = ICMP filtering (firewall policy).
+
+ 6) OSI LAYER MAPPING (Fault -> Layer)
+-----------------------------------------
+- Cable, signal, link down          -> Layer 1 Physical
+- WiFi interference, duplex, ARP    -> Layer 2 Data Link
+- Routing, IP, DHCP, hop loss       -> Layer 3 Network
+- DNS server                        -> Layer 7 Application
+
+ 7) CONGESTION VS LINK DOWN
+-----------------------------
+- Link down: 100% loss, zero replies, interface down.
+- Congestion: partial loss (20-40%) + high RTT + high jitter -
+  packets still arrive, but with delay/queue overflow.
+
+ 8) HOW THE ENGINE WORKS
+---------------------------------
+1. Data collection (real commands) -> JSON
+2. Signature extraction (loss%, jitter, signal, APIPA, DNS status)
+3. Rule matching -> each rule has a weight -> confidence %
+4. OSI layer mapping
+5. Sorting by severity and confidence -> final diagnosis
+
+ 9) LIVE SCAN VS SIMULATION
+-----------------------------
+- Live: real Windows commands (netsh, ping, tracert, nslookup).
+- Simulation: 15 pre-built scenarios generate synthetic data -
+  a backup for demos, no internet needed.
+
+ 10) HOW CONFIDENCE % IS BUILT
+-----------------------------------
+- Each rule receives a score when its evidence matches.
+- The more specific the evidence, the higher the confidence
+  (e.g. APIPA + no gateway = 95%, borderline jitter = 60-75%).
+
+===============================================================
+ VIVA QUESTIONS (short answers)
+===============================================================
+Q: On what basis is a signal of 84% reported?
+A: The adapter's RSSI (dBm) is mapped by Windows onto a 0-100 scale -
+   relative to its own range, not compared to any device.
+
+Q: What is jitter?
+A: The variation of RTT. High jitter = interference/congestion.
+
+Q: How is a DHCP failure detected?
+A: APIPA 169.254 IP + no gateway = DHCP server unreachable.
+
+Q: What is the signature of a DNS failure?
+A: Ping to an IP works + nslookup fails -> DNS misconfiguration (L7).
+
+Q: Why is the live scan not done in the browser?
+A: Browser security does not expose WiFi RSSI/ping/traceroute,
+   so a Node.js backend runs the real commands.
+
+Q: What is the confidence %?
+A: The strength of evidence matching a rule - the more specific the
+   evidence, the higher the confidence.
+
+Q: Congestion vs link down?
+A: Link down = 100% loss + interface down. Congestion = partial loss
+   + high RTT + jitter, interface still up.
+
+Q: What does a traceroute hop loss indicate?
+A: Loss at hop N with no later replies = that router/link is down (L3).
+   Loss with later replies = ICMP filtering.
+===============================================================

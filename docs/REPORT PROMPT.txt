@@ -1,0 +1,131 @@
+# Feature Implementation Prompt – Reports Module for Network Survey Application
+
+## Objective
+
+Implement a new **"Reports"** feature in the application that allows users to generate professional PDF reports from **Survey & Mapping** scan data.
+
+## Functional Requirements
+
+### 1. Reports Button
+
+Add a new **Reports** button/module in the application.
+
+When the user clicks on **Reports**:
+
+* Display a list of **all scans performed through the "Survey & Mapping" module only**.
+* Do **NOT** display scans created through the **Live Scan** module.
+* Each scan entry should show:
+
+  * Location Name / Address
+  * Date & Time of Scan
+  * Network Type (2G / 3G / 4G / 5G / Wi-Fi, etc.)
+  * Signal Strength
+  * Any other useful scan information available
+
+### 2. Scan Selection
+
+For every scan displayed in the Reports page:
+
+* Add a checkbox beside each scan.
+* Allow users to select one or multiple scans.
+* Only the selected scans should be included in the generated report.
+
+### 3. PDF Report Generation
+
+Add a **"Generate PDF Report"** button.
+
+When clicked:
+
+* Generate a professional PDF document.
+* Include only the scans selected by the user.
+* The PDF should have proper formatting, headers, page numbers, and tables.
+
+### 4. PDF Structure
+
+The report should contain:
+
+#### Report Header
+
+* Report Title
+* Generated Date & Time
+* Total Selected Locations
+* Organization/App Name (if applicable)
+
+#### Summary Section
+
+* Total Number of Selected Scans
+* Network Types Found
+* Average Signal Strength
+* Other useful statistics
+
+#### Detailed Scan Table
+
+Create a structured table with columns such as:
+
+| Sr No. | Location Name | Latitude | Longitude | Date & Time | Network Type | Signal Strength | Signal Quality | Additional Notes |
+| ------ | ------------- | -------- | --------- | ----------- | ------------ | --------------- | -------------- | ---------------- |
+
+Add any additional relevant columns available in the scan data.
+
+### 5. History Module Behavior
+
+Update the existing **History** section as follows:
+
+#### History Page
+
+History should display **ALL scans**, including:
+
+* Scans created from **Live Scan**
+* Scans created from **Survey & Mapping**
+
+This page acts as a complete scan history.
+
+#### Reports Page
+
+Reports should display **ONLY Survey & Mapping scans** because location information is required for report generation.
+
+### 6. UI Requirements
+
+* Clean and modern design.
+* Search functionality for scans.
+* Filter by:
+
+  * Date
+  * Network Type
+  * Signal Strength
+* Select All / Deselect All option.
+* Loading indicator while generating PDF.
+* Success message after report generation.
+* Download and Share PDF options.
+
+### 7. Technical Requirements
+
+* Efficient handling of large numbers of scans.
+* Proper error handling if no scans are selected.
+* Generate PDF locally without affecting app performance.
+* Ensure generated reports are mobile-friendly and professionally formatted.
+
+### Expected Workflow
+
+1. User performs scans through Survey & Mapping.
+2. Scans are stored in database/history.
+3. User opens Reports.
+4. Only Survey & Mapping scans are displayed.
+5. User selects required scans using checkboxes.
+6. User clicks Generate PDF.
+7. System creates a formatted PDF report containing selected scan data in tables.
+8. User can download or share the generated report.
+
+### Important Distinction
+
+**History**
+
+* Shows ALL scans.
+* Includes Live Scan + Survey & Mapping scans.
+
+**Reports**
+
+* Shows ONLY Survey & Mapping scans.
+* Used exclusively for PDF report generation because these scans contain location information.
+
+Implement this feature with production-quality code, proper state management, responsive UI, and clean architecture.

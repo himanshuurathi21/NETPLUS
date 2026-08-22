@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetPlus AI - Network Fault Diagnosis &amp; Wi-Fi Survey</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="logo">NFA</span>
+      <div class="brand-txt">
+        <span class="brand-name">NetPlus AI</span>
+        <span class="brand-sub">Network Diagnostics</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="tab-btn active" data-tab="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg>
+        <span data-i18n="tab-home">Home</span>
+      </button>
+      <button class="tab-btn" data-tab="live">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 8-6-16-3 8H2"/></svg>
+        <span data-i18n="tab-live">Live Scan</span>
+      </button>
+      <button class="tab-btn" data-tab="sim">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6L4.5 19a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V2"/><path d="M8.5 2h7M7 14h10"/></svg>
+        <span data-i18n="tab-sim">Simulation Lab</span>
+      </button>
+      <button class="tab-btn" data-tab="survey">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="tab-survey">Survey &amp; Mapping</span>
+      </button>
+      <button class="tab-btn" data-tab="reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+        <span>Reports</span>
+      </button>
+      <button class="tab-btn" data-tab="history">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span data-i18n="tab-history">History</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="status-chip" id="connChip">Offline</div>
+      <div class="foot-btns">
+        <button id="btnTheme" class="chip-btn" title="Toggle theme">&#127769;</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <!-- ============ TAB : HOME ============ -->
+    <section id="tab-home" class="tab-panel active">
+      <div class="hero">
+        <div class="hero-inner">
+          <h1 class="hero-title" data-i18n="home-title">Welcome to NetPlus AI</h1>
+          <p class="hero-sub" data-i18n="home-tagline">One-click network fault diagnosis, root-cause analysis and Wi-Fi site survey - built for Data Communication projects.</p>
+          <div class="hero-actions">
+            <button class="btn-light js-goto" data-tab="live">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span data-i18n="home-cta-scan">Run Full Diagnostics</span>
+            </button>
+            <button class="btn-ghost-invert js-goto" data-tab="sim">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6L4.5 19a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V2"/><path d="M8.5 2h7M7 14h10"/></svg>
+              <span data-i18n="home-cta-sim">Try a Simulation</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-ico" style="background:#e8f0fe;color:#2563eb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <div class="stat-label" data-i18n="home-stat-scans">Saved scans</div>
+            <div class="stat-val" id="homeTotalScans">-</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-ico" style="background:#e6f7f4;color:#0d9488">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div>
+            <div class="stat-label" data-i18n="home-stat-last">Last scan</div>
+            <div class="stat-val" id="homeLastScan">-</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-ico" style="background:#e6f7f4;color:#16a34a">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+          </div>
+          <div>
+            <div class="stat-label" data-i18n="home-stat-net">Internet</div>
+            <div class="stat-val" id="homeInternet">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-block">
+        <h2 class="home-block-title" data-i18n="home-steps-title">How it works</h2>
+        <div class="steps-row">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+            </div>
+            <h3 data-i18n="home-step1-t">1. Scan</h3>
+            <p data-i18n="home-step1-d">Run real diagnostics - ping, DNS, traceroute and more via the Windows command line.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M12 9v6M9 12h6M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg>
+            </div>
+            <h3 data-i18n="home-step2-t">2. Diagnose</h3>
+            <p data-i18n="home-step2-d">The AI engine maps every fault to its OSI layer root cause with confidence scores.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 5.6L3 17.6a2 2 0 0 0 2.8 2.8l5.7-5.7a4.5 4.5 0 0 0 5.6-6l-3 3-2.3-.7-.7-2.3 3-3z"/></svg>
+            </div>
+            <h3 data-i18n="home-step3-t">3. Fix</h3>
+            <p data-i18n="home-step3-d">Apply one-click fixes, compare scans, and export survey data.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-block">
+        <h2 class="home-block-title" data-i18n="home-explore-title">Explore the tools</h2>
+        <div class="feat-grid">
+          <button class="feat-card js-goto" data-tab="live">
+            <span class="feat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 8-6-16-3 8H2"/></svg>
+            </span>
+            <div class="feat-txt">
+              <h3 data-i18n="tab-live">Live Scan</h3>
+              <p data-i18n="home-feat-live-d">Real network scan with topology, signal, root-cause and history.</p>
+            </div>
+            <span class="feat-go">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </button>
+          <button class="feat-card js-goto" data-tab="sim">
+            <span class="feat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6L4.5 19a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V2"/><path d="M8.5 2h7M7 14h10"/></svg>
+            </span>
+            <div class="feat-txt">
+              <h3 data-i18n="tab-sim">Simulation Lab</h3>
+              <p data-i18n="home-feat-sim-d">15 guided scenarios across WiFi, LAN and mobile faults.</p>
+            </div>
+            <span class="feat-go">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </button>
+          <button class="feat-card js-goto" data-tab="survey">
+            <span class="feat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div class="feat-txt">
+              <h3 data-i18n="tab-survey">Survey &amp; Mapping</h3>
+              <p data-i18n="home-feat-survey-d">Measure, map and export site survey data with heatmaps.</p>
+            </div>
+            <span class="feat-go">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </button>
+          <button class="feat-card js-goto" data-tab="history">
+            <span class="feat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <div class="feat-txt">
+              <h3 data-i18n="tab-history">History</h3>
+              <p data-i18n="home-feat-history-d">Browse all previous scans, compare results and view fault statistics.</p>
+            </div>
+            <span class="feat-go">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB : LIVE SCAN ================= -->
+    <section id="tab-live" class="tab-panel">
+      <div class="panel-head">
+        <h2 class="page-title" data-i18n="tab-live">Live Scan</h2>
+        <p class="panel-sub">Run a full diagnostic on this PC and let the AI find the root cause.</p>
+      </div>
+
+      <div class="action-bar">
+        <div class="ab-row">
+          <div class="ab-left">
+            <button id="btnScan" class="btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span data-i18n="btn-scan">Run Full Diagnostics</span>
+            </button>
+            <button id="btnScanCancel" class="btn-danger" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              <span data-i18n="btn-cancel">Cancel Scan</span>
+            </button>
+          </div>
+          <div class="ab-tools">
+            <button id="btnCopyEvidence" class="btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span data-i18n="btn-copy-evidence">Copy Evidence</span>
+            </button>
+            <button id="btnEvidenceTxt" class="btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+              <span data-i18n="btn-evidence-txt">Evidence .txt</span>
+            </button>
+            <button id="btnTopoPng" class="btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M5 8v3a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8M6.5 7.5 11 16M17.5 7.5 13 16"/></svg>
+              <span data-i18n="btn-topo-png">Topology PNG</span>
+            </button>
+          </div>
+        </div>
+        <div class="progress-area">
+          <div class="progress-meta">
+            <span id="scanStatus" class="scan-status">Ready.</span>
+          </div>
+          <div class="scan-progress" id="scanProgress"></div>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><span class="pulse-dot"></span><h3>Network Topology</h3><span class="tag-live">LIVE</span></div>
+            <div class="card-body canvas-holder">
+              <canvas id="topologyCanvas" width="520" height="300"></canvas>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>WiFi Signal Strength</h3></div>
+            <div class="card-body canvas-holder">
+              <canvas id="signalCanvas" width="520" height="200"></canvas>
+              <div class="signal-meta" id="signalMeta">No scan yet</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Neighbor Networks</h3></div>
+            <div class="card-body">
+              <div class="table-scroll">
+                <table class="mini-table" id="neighborTable">
+                  <thead><tr><th>SSID</th><th>CH</th><th>Signal</th><th>Auth</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-accent">
+            <div class="card-head"><h3>Diagnosis &amp; Root Cause</h3></div>
+            <div class="card-body">
+              <div class="osi-indicator" id="osiIndicator">OSI Layer: --</div>
+              <div id="faultPanel" class="fault-panel">
+                <div class="placeholder">Run a scan to see fault analysis.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="fix-actions">Fix Actions</h3></div>
+            <div class="card-body">
+              <div class="fix-bar">
+                <button id="btnDhcpRenew" class="btn-ghost">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  <span data-i18n="btn-dhcp">Renew DHCP (release/renew)</span>
+                </button>
+                <button id="btnFlushDns" class="btn-ghost">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                  <span data-i18n="btn-flush">Flush DNS Cache</span>
+                </button>
+              </div>
+              <div class="row-sub" data-i18n="fix-note">Runs real Windows commands on this PC - results open in a popup.</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Traceroute Path</h3><span class="tag-mono">TARGET: 8.8.8.8</span></div>
+            <div class="card-body canvas-holder">
+              <canvas id="traceCanvas" width="520" height="240"></canvas>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Evidence Details</h3></div>
+            <div class="card-body">
+              <div id="evidenceBox" class="evidence-box">--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-i18n="live-recent">Recent Scans</h3><span class="tag-mono" id="histCount">0 saved scans</span></div>
+        <div class="card-body">
+          <div id="liveRecentBox" class="placeholder">Run a scan to see it appear here. Full history is in the History tab.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB : SIMULATION LAB ================= -->
+    <section id="tab-sim" class="tab-panel">
+      <div class="panel-head">
+        <h2 class="page-title" data-i18n="tab-sim">Simulation Lab</h2>
+        <p class="panel-sub">Practise diagnosing 15 pre-built faults without touching the real network.</p>
+      </div>
+
+      <div class="action-bar">
+        <div class="ab-row">
+          <div class="ab-left">
+            <div class="mode-select">
+              <label class="lbl-uppercase">Connection Type:</label>
+              <button class="mode-btn active" data-mode="wifi">WiFi Hotspot</button>
+              <button class="mode-btn" data-mode="lan">LAN Cable</button>
+              <button class="mode-btn" data-mode="mobile">Mobile Internet</button>
+            </div>
+          </div>
+          <div class="ab-tools">
+            <button id="btnSimRun" class="btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span>Run Simulation</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="scenarioList" class="scenario-grid"></div>
+
+      <div class="grid-2col">
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><h3>Simulated Topology</h3></div>
+            <div class="card-body canvas-holder">
+              <canvas id="simTopoCanvas" width="520" height="300"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Simulated Signal</h3></div>
+            <div class="card-body canvas-holder">
+              <canvas id="simSignalCanvas" width="520" height="200"></canvas>
+              <div class="signal-meta" id="simSignalMeta">--</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-accent">
+            <div class="card-head"><h3>Diagnosis Result (Simulated)</h3></div>
+            <div class="card-body">
+              <div class="osi-indicator" id="simOsiIndicator">OSI Layer: --</div>
+              <div id="simFaultPanel" class="fault-panel"><div class="placeholder">Select a scenario and run simulation.</div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Simulated Traceroute</h3></div>
+            <div class="card-body canvas-holder">
+              <canvas id="simTraceCanvas" width="520" height="240"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB : SURVEY & MAPPING ================= -->
+    <section id="tab-survey" class="tab-panel">
+      <div class="panel-head">
+        <h2 class="page-title" data-i18n="tab-survey">Survey &amp; Mapping</h2>
+        <p class="panel-sub">Measure signal quality across locations, map them and export your site survey.</p>
+      </div>
+
+      <div class="action-bar">
+        <div class="ab-row">
+          <div class="ab-left">
+            <button id="btnSurveyScan" class="btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <span data-i18n="btn-survey-scan">Scan &amp; Measure</span>
+            </button>
+            <input id="surveyLocName" class="input" placeholder="Location name (e.g. Hotel - Reception)" style="min-width:220px">
+            <input id="surveyNotes" class="input" placeholder="Notes (optional)" style="min-width:160px">
+          </div>
+          <div class="ab-tools">
+            <button id="btnSurveySave" class="btn-ghost" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+              <span data-i18n="btn-survey-save">Save Survey Point</span>
+            </button>
+            <span id="surveyStatus" class="scan-status">Ready.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="s-wifi">Wi-Fi Details</h3></div>
+            <div class="card-body">
+              <table class="kv-table" id="surveyWifiTable"><tbody></tbody></table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="s-speed">Internet Performance</h3></div>
+            <div class="card-body">
+              <table class="kv-table" id="surveySpeedTable"><tbody></tbody></table>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="s-gps">GPS Location</h3></div>
+            <div class="card-body">
+              <div id="surveyGpsBox" class="gps-box">Run a scan to detect the GPS position.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="s-quality">Signal Quality</h3></div>
+            <div class="card-body">
+              <div id="surveyQualityBox" class="quality-box">--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-i18n="s-history">Survey History</h3></div>
+        <div class="card-body">
+          <div class="history-toolbar">
+            <input id="histSearch" class="input" placeholder="Search location / SSID / notes...">
+            <select id="histFilter" class="input">
+              <option value="all">All qualities</option>
+              <option value="excellent">Excellent</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="poor">Poor</option>
+            </select>
+            <button id="btnCompare" class="btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M8 21H3v-5"/><path d="m21 3-6.75 6.75M3 21l6.75-6.75M18 10a6 6 0 0 1-8 8M6 14a6 6 0 0 1 8-8"/></svg>
+              <span>Compare Selected</span>
+            </button>
+            <span id="surveyHistCount" class="scan-status"></span>
+            <span id="surveyStats" class="scan-status"></span>
+          </div>
+          <div class="table-scroll">
+            <table class="mini-table" id="surveyHistoryTable">
+              <thead>
+                <tr>
+                  <th style="width:28px"></th>
+                  <th class="sortable" data-key="locationName">Location <span class="srt"></span></th>
+                  <th class="sortable" data-key="ssid">SSID <span class="srt"></span></th>
+                  <th>Band</th>
+                  <th class="sortable" data-key="signalPct">Signal <span class="srt"></span></th>
+                  <th>Quality</th>
+                  <th class="sortable" data-key="download">Down / Up <span class="srt"></span></th>
+                  <th class="sortable" data-key="ping">Ping <span class="srt"></span></th>
+                  <th class="sortable" data-key="timestamp">Time <span class="srt"></span></th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="s-map">Survey Map</h3></div>
+            <div class="card-body">
+              <div class="map-wrap">
+                <canvas id="surveyMapCanvas" width="520" height="320"></canvas>
+                <div id="mapPopup" class="map-popup"></div>
+              </div>
+              <div class="legend-row">
+                <span class="lg-dot" style="background:#34d399"></span> Excellent (75%+)
+                <span class="lg-dot" style="background:#fbbf24"></span> Good (50-74%)
+                <span class="lg-dot" style="background:#fb923c"></span> Fair (25-49%)
+                <span class="lg-dot" style="background:#f87171"></span> Poor (&lt;25%)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="s-heat">Signal Heatmap</h3></div>
+            <div class="card-body">
+              <canvas id="surveyHeatCanvas" width="520" height="320"></canvas>
+              <div class="heat-legend"></div>
+              <div class="heat-labels"><span>Dead zone</span><span>Weak</span><span>Medium</span><span>Strong</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="compareCard" style="display:none">
+        <div class="card-head"><h3>Survey Comparison</h3></div>
+        <div class="card-body">
+          <div class="table-scroll">
+            <table class="mini-table">
+              <thead><tr><th>Location</th><th>Signal</th><th>Download</th><th>Upload</th><th>Ping</th><th>Time</th></tr></thead>
+              <tbody id="compareBody"></tbody>
+            </table>
+          </div>
+          <div class="row-sub">Best values are highlighted in green.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-i18n="s-export">Export Survey Data</h3></div>
+        <div class="card-body">
+          <div class="export-bar">
+            <input id="exportFolder" class="input" placeholder="Project folder name (e.g. Hotel_Survey)" style="min-width:220px">
+            <button id="expCsv" class="btn-ghost" data-export="csv">CSV</button>
+            <button id="expXlsx" class="btn-ghost" data-export="xlsx">Excel (.xlsx)</button>
+            <button id="expJson" class="btn-ghost" data-export="json">JSON</button>
+            <button id="expKml" class="btn-ghost" data-export="kml">KML (Google Earth)</button>
+          </div>
+          <div class="row-sub">Files are saved under: NETPLUS/Surveys/&lt;folder&gt;/</div>
+          <div id="exportStatus" class="scan-status" style="margin-top:8px"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-i18n="s-floor">Floor Plan Background</h3></div>
+        <div class="card-body">
+          <div class="export-bar">
+            <input id="floorPlanInput" type="file" accept="image/*">
+            <button id="btnFloorClear" class="btn-ghost" data-i18n="btn-floor-clear">Remove Floor Plan</button>
+          </div>
+          <div class="row-sub">Upload a floor plan / map image - survey points plot over it.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-i18n="s-timeline">Signal Timeline (all points over time)</h3></div>
+        <div class="card-body canvas-holder">
+          <canvas id="surveyTimelineCanvas" width="520" height="220"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB : REPORTS ================= -->
+    <section id="tab-reports" class="tab-panel">
+      <div class="panel-head">
+        <h2 class="page-title">Reports</h2>
+        <p class="panel-sub">Generate a professional PDF report from your Survey &amp; Mapping scans (Live Scan results are excluded because they carry no location data).</p>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Report Details</h3></div>
+        <div class="card-body">
+          <div class="history-toolbar">
+            <input id="repClient" class="input" placeholder="Client / Company Name">
+            <input id="repSite" class="input" placeholder="Site Name">
+            <input id="repPreparedBy" class="input" placeholder="Prepared By">
+            <input id="repReportId" class="input" placeholder="Report ID (auto if blank)">
+          </div>
+        </div>
+      </div>
+
+      <div class="action-bar">
+        <div class="ab-row">
+          <div class="ab-left">
+            <button id="btnSelectAll" class="btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              <span>Select All</span>
+            </button>
+            <button id="btnDeselect" class="btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              <span>Deselect All</span>
+            </button>
+          </div>
+          <div class="ab-tools">
+            <button id="btnGenerateReport" class="btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              <span>Generate PDF Report</span>
+            </button>
+          </div>
+        </div>
+        <div class="progress-area"><div class="scan-status" id="repStatus">Select scans to include in the report.</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Survey &amp; Mapping Scans</h3><span class="tag-mono" id="repCount">0 selected</span></div>
+        <div class="card-body">
+          <div class="history-toolbar">
+            <input id="repSearch" class="input" placeholder="Search location / SSID / notes...">
+            <select id="repNetFilter" class="input"><option value="">All network types</option></select>
+            <select id="repQualFilter" class="input">
+              <option value="">All signal quality</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Poor">Poor</option>
+            </select>
+            <select id="repDateFilter" class="input">
+              <option value="">All dates</option>
+              <option value="today">Today</option>
+              <option value="7">Last 7 days</option>
+              <option value="30">Last 30 days</option>
+            </select>
+          </div>
+          <div id="repList" class="history-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB : HISTORY ================= -->
+    <section id="tab-history" class="tab-panel">
+      <div class="panel-head">
+        <h2 class="page-title" data-i18n="tab-history">History</h2>
+        <p class="panel-sub">All previous scan results with comparison, fault statistics and management.</p>
+      </div>
+
+      <div class="action-bar">
+        <div class="ab-row">
+          <div class="ab-left">
+            <button id="btnHistRefresh" class="btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              <span data-i18n="btn-hist-refresh">Refresh</span>
+            </button>
+            <button id="btnHistCompare" class="btn-ghost" data-i18n="btn-hist-compare">Compare Selected</button>
+            <button id="btnHistClear" class="btn-ghost danger-btn" data-i18n="btn-hist-clear">Clear History</button>
+          </div>
+          <div class="ab-tools">
+            <input id="histSearchLive" class="input" placeholder="Search SSID / gateway / mode..." style="min-width:220px">
+            <span id="histCountLive" class="scan-status"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3 data-i18n="scan-history">All Saved Scans</h3></div>
+        <div class="card-body">
+          <div class="table-scroll">
+            <table class="mini-table" id="historyTableLive">
+              <thead>
+                <tr>
+                  <th style="width:28px"></th>
+                  <th class="sortable-hist" data-key="timestamp">Time <span class="srt"></span></th>
+                  <th data-i18n="h-mode">Mode</th>
+                  <th data-i18n="h-ssid">SSID / Signal</th>
+                  <th data-i18n="h-gateway">Gateway</th>
+                  <th data-i18n="h-internet">Internet</th>
+                  <th data-i18n="h-rtt">Avg RTT</th>
+                  <th>Top Fault</th>
+                  <th data-i18n="h-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="historyBodyLive"></tbody>
+            </table>
+          </div>
+          <div id="histCompareBoxLive"></div>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><h3 data-i18n="fault-stats">Fault Statistics (all saved scans)</h3></div>
+            <div class="card-body">
+              <div class="stats-wrap">
+                <canvas id="statsCanvasLive" width="360" height="300"></canvas>
+                <div id="statsLegendLive" class="stats-legend"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-head"><h3>Scan Details</h3></div>
+            <div class="card-body">
+              <div id="histDetailBox" class="placeholder">Select a scan and click "Load" to view its full details here.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="modalOverlay" class="modal-overlay" style="display:none">
+  <div class="modal">
+    <div class="modal-head"><h3 id="modalTitle"></h3><button id="modalClose" class="modal-close">&times;</button></div>
+    <div id="modalBody" class="modal-body"></div>
+    <div id="modalActions" class="modal-actions"></div>
+  </div>
+</div>
+
+<div id="reportModal" class="modal-overlay" style="display:none">
+  <div class="modal" style="max-width:720px">
+    <div class="modal-head"><h3>Survey Report Preview</h3><button class="modal-close" data-close="reportModal">&times;</button></div>
+    <div class="modal-body">
+      <iframe id="repPreviewFrame" style="width:100%;height:60vh;border:1px solid var(--border);border-radius:10px;background:#fff"></iframe>
+    </div>
+    <div class="modal-actions">
+      <button id="repShare" class="btn-ghost">Share</button>
+      <a id="repDownload" class="btn-primary" download>Download PDF</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/scenarios.js"></script>
+<script src="js/analyzer.js"></script>
+<script src="js/survey.js"></script>
+<script src="js/pdf.js"></script>
+<script src="js/reports.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

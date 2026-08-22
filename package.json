@@ -1,0 +1,14 @@
+{
+  "name": "netplus-ai",
+  "version": "1.0.0",
+  "description": "Network Fault Diagnosis, Root Cause Analyzer and Wi-Fi Site Survey - Data Communication Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/test_engine.js && node tests/test_survey.js && node tests/test_history.js && node tests/test_pdf.js && node tests/test_pdf_layout.js"
+  },
+  "keywords": ["network", "diagnosis", "root-cause", "data-communication"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

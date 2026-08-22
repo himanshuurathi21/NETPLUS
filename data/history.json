@@ -1,0 +1,5139 @@
+[
+  {
+    "id": "Smt4rqyvqxvmw",
+    "data": {
+      "timestamp": "2026-08-22T19:25:47.916Z",
+      "mode": "wifi",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 20,
+            "max": 51,
+            "avg": 35,
+            "jitter": 31,
+            "times": [
+              36,
+              37,
+              34,
+              20,
+              51
+            ],
+            "durationMs": 4174
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 21,
+            "max": 51,
+            "avg": 34,
+            "jitter": 30,
+            "times": [
+              32,
+              38,
+              28,
+              21,
+              51
+            ],
+            "durationMs": 4169
+          },
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 2,
+            "max": 37,
+            "avg": 10,
+            "jitter": 35,
+            "times": [
+              2,
+              2,
+              6,
+              5,
+              37
+            ],
+            "durationMs": 4183
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "6",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "82%",
+          "profile": "Himanshu  2",
+          "hosted_network_status": "Not available",
+          "signalPct": 82,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "signalPct": 100,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 20,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Jay Shankar_2.4G",
+          "bssid": "14:33:75:7c:75:7a",
+          "signalPct": 36,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Kantidhan_205",
+          "bssid": "54:a2:45:03:56:a0",
+          "signalPct": 34,
+          "channel": "1",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 166,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2368,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 153,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 165,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              8,
+              3,
+              4
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              99,
+              24,
+              13
+            ],
+            "lossPct": 0,
+            "ip": "192.168.76.130"
+          },
+          {
+            "hop": 3,
+            "times": [
+              17,
+              14,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.147"
+          },
+          {
+            "hop": 4,
+            "times": [
+              26,
+              19,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.161"
+          },
+          {
+            "hop": 5,
+            "times": [
+              25,
+              19,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.91"
+          },
+          {
+            "hop": 6,
+            "times": [
+              18,
+              13,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.138"
+          },
+          {
+            "hop": 7,
+            "times": [
+              20,
+              15,
+              13
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.137"
+          },
+          {
+            "hop": 8,
+            "times": [
+              32,
+              19,
+              13
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.216"
+          },
+          {
+            "hop": 9,
+            "times": [
+              56,
+              31,
+              27
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              21,
+              20,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.77"
+          },
+          {
+            "hop": 11,
+            "times": [
+              23,
+              30,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "142.251.69.45"
+          },
+          {
+            "hop": 12,
+            "times": [
+              25,
+              18,
+              22
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 22552,
+      "id": "Smt4rqyvqxvmw"
+    }
+  },
+  {
+    "id": "Smt4re6r31231",
+    "data": {
+      "timestamp": "2026-08-22T19:15:51.274Z",
+      "mode": "wifi",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 3,
+            "max": 38,
+            "avg": 11,
+            "jitter": 35,
+            "times": [
+              3,
+              38,
+              9,
+              4,
+              3
+            ],
+            "durationMs": 4159
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 23,
+            "max": 113,
+            "avg": 52,
+            "jitter": 90,
+            "times": [
+              113,
+              75,
+              25,
+              24,
+              23
+            ],
+            "durationMs": 4184
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 26,
+            "max": 89,
+            "avg": 41,
+            "jitter": 63,
+            "times": [
+              89,
+              32,
+              27,
+              31,
+              26
+            ],
+            "durationMs": 4173
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "6",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "95%",
+          "profile": "Himanshu  2",
+          "hosted_network_status": "Not available",
+          "signalPct": 95,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "signalPct": 100,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 20,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Jay Shankar_2.4G",
+          "bssid": "14:33:75:7c:75:7a",
+          "signalPct": 36,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Kantidhan_205",
+          "bssid": "54:a2:45:03:56:a0",
+          "signalPct": 34,
+          "channel": "1",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 196,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2396,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 187,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 142,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              4,
+              5,
+              2
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              25,
+              28,
+              13
+            ],
+            "lossPct": 0,
+            "ip": "192.168.76.130"
+          },
+          {
+            "hop": 3,
+            "times": [
+              20,
+              15,
+              12
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.147"
+          },
+          {
+            "hop": 4,
+            "times": [
+              22,
+              41,
+              20
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.161"
+          },
+          {
+            "hop": 5,
+            "times": [
+              29,
+              14,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.83"
+          },
+          {
+            "hop": 6,
+            "times": [
+              25,
+              14,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.138"
+          },
+          {
+            "hop": 7,
+            "times": [
+              22,
+              14,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.137"
+          },
+          {
+            "hop": 8,
+            "times": [
+              25,
+              29,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.216"
+          },
+          {
+            "hop": 9,
+            "times": [
+              27,
+              32,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              30,
+              30,
+              40
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.77"
+          },
+          {
+            "hop": 11,
+            "times": [
+              27,
+              17,
+              22
+            ],
+            "lossPct": 0,
+            "ip": "142.251.69.45"
+          },
+          {
+            "hop": 12,
+            "times": [
+              39,
+              24,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 22853,
+      "id": "Smt4re6r31231"
+    }
+  },
+  {
+    "id": "Smt4rbikjo8wj",
+    "data": {
+      "timestamp": "2026-08-22T19:13:32.698Z",
+      "mode": "wifi",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 50,
+            "max": 74,
+            "avg": 57,
+            "jitter": 24,
+            "times": [
+              74,
+              50,
+              50,
+              50,
+              64
+            ],
+            "durationMs": 5250
+          },
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 2,
+            "max": 40,
+            "avg": 15,
+            "jitter": 38,
+            "times": [
+              40,
+              29,
+              2,
+              2,
+              3
+            ],
+            "durationMs": 5355
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 20,
+            "max": 77,
+            "avg": 34,
+            "jitter": 57,
+            "times": [
+              77,
+              20,
+              25,
+              29,
+              22
+            ],
+            "durationMs": 5063
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "6",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "85%",
+          "profile": "Himanshu  2",
+          "hosted_network_status": "Not available",
+          "signalPct": 85,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "signalPct": 100,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 20,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Jay Shankar_2.4G",
+          "bssid": "14:33:75:7c:75:7a",
+          "signalPct": 36,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Kantidhan_205",
+          "bssid": "54:a2:45:03:56:a0",
+          "signalPct": 34,
+          "channel": "1",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 3617,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2796,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 951,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 302,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              4,
+              2,
+              3
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              30,
+              21,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "192.168.76.130"
+          },
+          {
+            "hop": 3,
+            "times": [
+              15,
+              19,
+              25
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.147"
+          },
+          {
+            "hop": 4,
+            "times": [
+              28,
+              15,
+              24
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.161"
+          },
+          {
+            "hop": 5,
+            "times": [
+              24,
+              25,
+              12
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.83"
+          },
+          {
+            "hop": 6,
+            "times": [
+              30,
+              20,
+              13
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.138"
+          },
+          {
+            "hop": 7,
+            "times": [
+              15,
+              13,
+              33
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.137"
+          },
+          {
+            "hop": 8,
+            "times": [
+              18,
+              14,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.216"
+          },
+          {
+            "hop": 9,
+            "times": [
+              21,
+              20,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              39,
+              22,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.77"
+          },
+          {
+            "hop": 11,
+            "times": [
+              31,
+              25,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "142.251.69.45"
+          },
+          {
+            "hop": 12,
+            "times": [
+              15,
+              16,
+              15
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 36777,
+      "id": "Smt4rbikjo8wj"
+    }
+  },
+  {
+    "id": "Smt4qyd2v7mgz",
+    "data": {
+      "timestamp": "2026-08-22T19:03:24.834Z",
+      "mode": "wifi",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 15,
+            "max": 37,
+            "avg": 25,
+            "jitter": 22,
+            "times": [
+              37,
+              15,
+              23,
+              22,
+              29
+            ],
+            "durationMs": 4407
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 17,
+            "max": 32,
+            "avg": 23,
+            "jitter": 15,
+            "times": [
+              32,
+              17,
+              23,
+              22,
+              24
+            ],
+            "durationMs": 4389
+          },
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 2,
+            "max": 42,
+            "avg": 10,
+            "jitter": 40,
+            "times": [
+              2,
+              2,
+              2,
+              3,
+              42
+            ],
+            "durationMs": 5079
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "6",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "83%",
+          "profile": "Himanshu  2",
+          "hosted_network_status": "Not available",
+          "signalPct": 83,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "signalPct": 85,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "INIDIUMTECH",
+          "bssid": "5a:23:e0:7c:7b:81",
+          "signalPct": 34,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 40,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Jay Shankar_2.4G",
+          "bssid": "14:33:75:7c:75:7a",
+          "signalPct": 36,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Friends Hostel A112",
+          "bssid": "f4:4d:5c:f1:e0:d4",
+          "signalPct": 22,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Kantidhan_205",
+          "bssid": "54:a2:45:03:56:a0",
+          "signalPct": 26,
+          "channel": "1",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 2243,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2898,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 309,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 339,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              2,
+              3,
+              2
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              17,
+              23,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "192.168.76.130"
+          },
+          {
+            "hop": 3,
+            "times": [
+              69,
+              24,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.147"
+          },
+          {
+            "hop": 4,
+            "times": [
+              155,
+              36,
+              22
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.161"
+          },
+          {
+            "hop": 5,
+            "times": [
+              26,
+              31,
+              23
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.83"
+          },
+          {
+            "hop": 6,
+            "times": [
+              25,
+              13,
+              15
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.138"
+          },
+          {
+            "hop": 7,
+            "times": [
+              23,
+              20,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.137"
+          },
+          {
+            "hop": 8,
+            "times": [
+              28,
+              19,
+              22
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.216"
+          },
+          {
+            "hop": 9,
+            "times": [
+              18,
+              20,
+              37
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              21,
+              24,
+              48
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.77"
+          },
+          {
+            "hop": 11,
+            "times": [
+              61,
+              16,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "142.251.69.45"
+          },
+          {
+            "hop": 12,
+            "times": [
+              30,
+              19,
+              22
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 30982,
+      "id": "Smt4qyd2v7mgz"
+    }
+  },
+  {
+    "id": "Smt4q3vni7v44",
+    "data": {
+      "timestamp": "2026-08-22T18:39:45.729Z",
+      "mode": "wifi",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 19,
+            "max": 66,
+            "avg": 36,
+            "jitter": 47,
+            "times": [
+              19,
+              33,
+              24,
+              38,
+              66
+            ],
+            "durationMs": 4586
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 17,
+            "max": 30,
+            "avg": 24,
+            "jitter": 13,
+            "times": [
+              29,
+              17,
+              26,
+              22,
+              30
+            ],
+            "durationMs": 4293
+          },
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 2,
+            "max": 28,
+            "avg": 8,
+            "jitter": 26,
+            "times": [
+              2,
+              7,
+              3,
+              3,
+              28
+            ],
+            "durationMs": 4639
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "1",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "93%",
+          "profile": "Himanshu  2",
+          "hosted_network_status": "Not available",
+          "signalPct": 93,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "signalPct": 90,
+          "channel": "1",
+          "radioType": "802.11ax",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 66,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "INIDIUMTECH",
+          "bssid": "5a:23:e0:7c:7b:81",
+          "signalPct": 38,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Friends Hostel A112",
+          "bssid": "f4:4d:5c:f1:e0:d4",
+          "signalPct": 28,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Jay Shankar_2.4G",
+          "bssid": "14:33:75:7c:75:7a",
+          "signalPct": 38,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 326,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2400,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 221,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 225,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              5,
+              8,
+              6
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              24,
+              13,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.76.130"
+          },
+          {
+            "hop": 3,
+            "times": [
+              22,
+              12,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.147"
+          },
+          {
+            "hop": 4,
+            "times": [
+              25,
+              29,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.161"
+          },
+          {
+            "hop": 5,
+            "times": [
+              12,
+              14,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.91"
+          },
+          {
+            "hop": 6,
+            "times": [
+              21,
+              13,
+              20
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.138"
+          },
+          {
+            "hop": 7,
+            "times": [
+              14,
+              13,
+              15
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.137"
+          },
+          {
+            "hop": 8,
+            "times": [
+              20,
+              30,
+              20
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.216"
+          },
+          {
+            "hop": 9,
+            "times": [
+              25,
+              19,
+              30
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              26,
+              36,
+              28
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.77"
+          },
+          {
+            "hop": 11,
+            "times": [
+              56,
+              31,
+              20
+            ],
+            "lossPct": 0,
+            "ip": "142.251.69.45"
+          },
+          {
+            "hop": 12,
+            "times": [
+              22,
+              17,
+              22
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 27660,
+      "id": "Smt4q3vni7v44"
+    }
+  },
+  {
+    "id": "Smt4nbh9wwvlp",
+    "data": {
+      "timestamp": "2026-08-22T17:21:44.047Z",
+      "mode": "wifi",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 3,
+            "max": 13,
+            "avg": 7,
+            "jitter": 10,
+            "times": [
+              4,
+              13,
+              7,
+              3,
+              11
+            ],
+            "durationMs": 4203
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 17,
+            "max": 31,
+            "avg": 26,
+            "jitter": 14,
+            "times": [
+              27,
+              29,
+              28,
+              17,
+              31
+            ],
+            "durationMs": 4172
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 17,
+            "max": 32,
+            "avg": 26,
+            "jitter": 15,
+            "times": [
+              24,
+              29,
+              32,
+              17,
+              30
+            ],
+            "durationMs": 4184
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "1",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "83%",
+          "profile": "Himanshu  2",
+          "hosted_network_status": "Not available",
+          "signalPct": 83,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "1e:58:e6:a6:f0:b3",
+          "signalPct": 82,
+          "channel": "1",
+          "radioType": "802.11ax",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Jay Shankar_2.4G",
+          "bssid": "14:33:75:7c:75:7a",
+          "signalPct": 32,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "1e-58-e6-a6-f0-b3",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 260,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2487,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 188,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 170,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              11,
+              11,
+              2
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              23,
+              48,
+              26
+            ],
+            "lossPct": 0,
+            "ip": "192.168.76.130"
+          },
+          {
+            "hop": 3,
+            "times": [
+              36,
+              23,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.132"
+          },
+          {
+            "hop": 4,
+            "times": [
+              25,
+              12,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.161"
+          },
+          {
+            "hop": 5,
+            "times": [
+              19,
+              13,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.90"
+          },
+          {
+            "hop": 6,
+            "times": [
+              22,
+              23,
+              24
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.138"
+          },
+          {
+            "hop": 7,
+            "times": [
+              63,
+              24,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.137"
+          },
+          {
+            "hop": 8,
+            "times": [
+              65,
+              86,
+              52
+            ],
+            "lossPct": 0,
+            "ip": "116.119.164.99"
+          },
+          {
+            "hop": 9,
+            "times": [
+              46,
+              37,
+              30
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              42,
+              18,
+              35
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.207"
+          },
+          {
+            "hop": 11,
+            "times": [
+              27,
+              31,
+              26
+            ],
+            "lossPct": 0,
+            "ip": "142.250.238.203"
+          },
+          {
+            "hop": 12,
+            "times": [
+              27,
+              21,
+              16
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 25285,
+      "id": "Smt4nbh9wwvlp"
+    }
+  },
+  {
+    "id": "Smt1dgl4t8mn2",
+    "data": {
+      "timestamp": "2026-08-20T10:22:38.634Z",
+      "mode": "lan",
+      "connectivity": {
+        "gateway": "30.0.0.1",
+        "gatewayArp": {
+          "ip": "30.0.0.1",
+          "mac": "68-cc-ae-f3-23-e6",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": false,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 0,
+            "lost": 5,
+            "lossPct": 100,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": null,
+            "max": null,
+            "avg": null,
+            "jitter": 0,
+            "times": [],
+            "durationMs": 4057
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 6,
+            "max": 7,
+            "avg": 6,
+            "jitter": 1,
+            "times": [
+              7,
+              6,
+              6,
+              6,
+              6
+            ],
+            "durationMs": 4055
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 4,
+            "max": 5,
+            "avg": 4,
+            "jitter": 1,
+            "times": [
+              5,
+              4,
+              4,
+              4,
+              4
+            ],
+            "durationMs": 4063
+          }
+        },
+        "activeIface": {
+          "name": "Ethernet",
+          "ipv4": "30.0.2.134",
+          "subnet": "255.255.248.0",
+          "gateway": "30.0.0.1",
+          "dhcp": false,
+          "dhcpServer": null,
+          "mac": "10-98-19-27-91-53",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": false,
+        "connected": false,
+        "data": null
+      },
+      "neighbors": [],
+      "interfaces": [
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "CloudflareWARP",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "30.0.0.1",
+          "mac": "68-cc-ae-f3-23-e6",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "30.0.0.103",
+          "mac": "d4-a2-cd-ad-f4-16",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.0.110",
+          "mac": "d4-a2-cd-ad-d9-f7",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.144",
+          "mac": "cc-96-e5-36-93-3d",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.145",
+          "mac": "cc-96-e5-36-94-91",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.146",
+          "mac": "cc-96-e5-36-95-f2",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.148",
+          "mac": "cc-96-e5-35-86-20",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.152",
+          "mac": "cc-96-e5-35-84-bb",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.154",
+          "mac": "cc-96-e5-36-93-bd",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.158",
+          "mac": "cc-96-e5-36-94-18",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.159",
+          "mac": "cc-96-e5-35-85-9e",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.51",
+          "mac": "10-98-19-2a-c9-fc",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.135",
+          "mac": "10-98-19-27-80-56",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.174",
+          "mac": "d4-a2-cd-ad-e5-74",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.177",
+          "mac": "d4-a2-cd-ad-f6-60",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.184",
+          "mac": "d4-a2-cd-ad-f4-94",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.185",
+          "mac": "d4-a2-cd-ad-e4-13",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.191",
+          "mac": "d4-a2-cd-ad-f6-c9",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.216",
+          "mac": "d4-a2-cd-ad-ef-71",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.220",
+          "mac": "d4-a2-cd-ad-fd-f7",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.224",
+          "mac": "d4-a2-cd-ad-f6-8b",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.5",
+          "mac": "d4-a2-cd-ad-f6-16",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.16",
+          "mac": "d4-a2-cd-ad-f8-d6",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.125",
+          "mac": "10-98-19-2a-d4-3d",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.132",
+          "mac": "10-98-19-27-81-13",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.133",
+          "mac": "10-98-19-2a-d3-d4",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.134",
+          "mac": "10-98-19-2a-cf-b3",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.140",
+          "mac": "10-98-19-2a-cc-ca",
+          "type": "dynamic"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "connectivity-check.warp-svc",
+        "address": "127.0.2.2",
+        "status": "ok",
+        "lookupMs": 36,
+        "tests": [
+          {
+            "server": "connectivity-check.warp-svc",
+            "ms": 26,
+            "ok": true
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 51,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 39,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": null,
+        "mtu": null,
+        "note": "packets fragmented - MTU lower than 500 (or gateway unreachable)"
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": true
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              4,
+              4,
+              4
+            ],
+            "lossPct": 0,
+            "ip": "104.28.0.0"
+          },
+          {
+            "hop": 2,
+            "times": [
+              5,
+              5,
+              4
+            ],
+            "lossPct": 0,
+            "ip": "172.69.83.1"
+          },
+          {
+            "hop": 3,
+            "times": [
+              null,
+              7,
+              5
+            ],
+            "lossPct": 33,
+            "ip": "162.158.226.66"
+          },
+          {
+            "hop": 4,
+            "times": [
+              8,
+              6,
+              6
+            ],
+            "lossPct": 0,
+            "ip": "142.250.166.162"
+          },
+          {
+            "hop": 5,
+            "times": [
+              4,
+              4,
+              4
+            ],
+            "lossPct": 0,
+            "ip": "74.125.37.7"
+          },
+          {
+            "hop": 6,
+            "times": [
+              6,
+              5,
+              6
+            ],
+            "lossPct": 0,
+            "ip": "108.170.226.131"
+          },
+          {
+            "hop": 7,
+            "times": [
+              7,
+              5,
+              6
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 14294,
+      "id": "Smt1dgl4t8mn2"
+    }
+  },
+  {
+    "id": "Smsrdenz2n74c",
+    "data": {
+      "timestamp": "2026-08-13T10:23:26.918Z",
+      "mode": "lan",
+      "connectivity": {
+        "gateway": "30.0.0.1",
+        "gatewayArp": {
+          "ip": "30.0.0.1",
+          "mac": "68-cc-ae-f3-23-e6",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": false,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 0,
+            "lost": 5,
+            "lossPct": 100,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": null,
+            "max": null,
+            "avg": null,
+            "jitter": 0,
+            "times": [],
+            "durationMs": 4042
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 5,
+            "max": 6,
+            "avg": 5,
+            "jitter": 1,
+            "times": [
+              6,
+              5,
+              5,
+              5,
+              5
+            ],
+            "durationMs": 4042
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 3,
+            "max": 4,
+            "avg": 3,
+            "jitter": 1,
+            "times": [
+              4,
+              4,
+              3,
+              4,
+              3
+            ],
+            "durationMs": 4059
+          }
+        },
+        "activeIface": {
+          "name": "Ethernet",
+          "ipv4": "30.0.2.135",
+          "subnet": "255.255.248.0",
+          "gateway": "30.0.0.1",
+          "dhcp": false,
+          "dhcpServer": null,
+          "mac": "10-98-19-27-80-56",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": false,
+        "connected": false,
+        "data": null
+      },
+      "neighbors": [],
+      "interfaces": [
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "CloudflareWARP",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "30.0.0.1",
+          "mac": "68-cc-ae-f3-23-e6",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "30.0.0.86",
+          "mac": "d4-a2-cd-af-8b-ce",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.1.152",
+          "mac": "cc-96-e5-35-84-bb",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.13",
+          "mac": "cc-96-e5-35-5b-f5",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.133",
+          "mac": "10-98-19-27-7f-35",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.2.188",
+          "mac": "d4-a2-cd-ad-f9-36",
+          "type": "dynamic"
+        },
+        {
+          "ip": "30.0.3.14",
+          "mac": "d4-a2-cd-ad-f8-ba",
+          "type": "dynamic"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "connectivity-check.warp-svc",
+        "address": "127.0.2.2",
+        "status": "ok",
+        "lookupMs": 30,
+        "tests": [
+          {
+            "server": "connectivity-check.warp-svc",
+            "ms": 22,
+            "ok": true
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 43,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 34,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": null,
+        "mtu": null,
+        "note": "packets fragmented - MTU lower than 500 (or gateway unreachable)"
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": true
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              3,
+              3,
+              3
+            ],
+            "lossPct": 0,
+            "ip": "104.28.0.0"
+          },
+          {
+            "hop": 2,
+            "times": [
+              5,
+              5,
+              5
+            ],
+            "lossPct": 0,
+            "ip": "172.71.201.1"
+          },
+          {
+            "hop": 3,
+            "times": [
+              null,
+              12,
+              5
+            ],
+            "lossPct": 33,
+            "ip": "162.158.226.78"
+          },
+          {
+            "hop": 4,
+            "times": [
+              5,
+              5,
+              4
+            ],
+            "lossPct": 0,
+            "ip": "162.158.226.7"
+          },
+          {
+            "hop": 5,
+            "times": [
+              5,
+              5,
+              4
+            ],
+            "lossPct": 0,
+            "ip": "142.251.76.33"
+          },
+          {
+            "hop": 6,
+            "times": [
+              24,
+              5,
+              5
+            ],
+            "lossPct": 0,
+            "ip": "142.251.77.95"
+          },
+          {
+            "hop": 7,
+            "times": [
+              6,
+              5,
+              5
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 14616,
+      "id": "Smsrdenz2n74c"
+    }
+  },
+  {
+    "id": "Smsk3z9dkcn6l",
+    "data": {
+      "timestamp": "2026-08-08T08:24:56.612Z",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "7a-c2-95-20-14-f8",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 20,
+            "max": 36,
+            "avg": 29,
+            "jitter": 16,
+            "times": [
+              27,
+              31,
+              36,
+              34,
+              20
+            ],
+            "durationMs": 4174
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 23,
+            "max": 37,
+            "avg": 29,
+            "jitter": 14,
+            "times": [
+              37,
+              30,
+              23,
+              30,
+              25
+            ],
+            "durationMs": 4186
+          },
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 2,
+            "max": 8,
+            "avg": 3,
+            "jitter": 6,
+            "times": [
+              8,
+              4,
+              2,
+              2,
+              3
+            ],
+            "durationMs": 4247
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "7a:c2:95:20:14:f8",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "6",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "92%",
+          "profile": "Himanshu  2",
+          "hosted_network_status": "Not available",
+          "signalPct": 92,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "7a:c2:95:20:14:f8",
+          "signalPct": 87,
+          "channel": "6",
+          "radioType": "802.11ax",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Friends Hostel A112",
+          "bssid": "f4:4d:5c:f1:e0:d4",
+          "signalPct": 26,
+          "channel": "6",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "INIDIUMTECH",
+          "bssid": "5a:23:e0:7c:7b:81",
+          "signalPct": 24,
+          "channel": "11",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Jay Shankar_2.4G",
+          "bssid": "14:33:75:7c:75:7a",
+          "signalPct": 40,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Friends Hostel_A107",
+          "bssid": "fc:22:f4:30:d7:a2",
+          "signalPct": 14,
+          "channel": "1",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Airtel_Digsol",
+          "bssid": "30:bd:13:d8:5c:f6",
+          "signalPct": 10,
+          "channel": "2",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "7a-c2-95-20-14-f8",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.102.18",
+          "mac": "01-00-5e-7f-66-12",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 246,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2447,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 186,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 162,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              8,
+              2,
+              3
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              75,
+              235,
+              190
+            ],
+            "lossPct": 0,
+            "ip": "100.64.0.100"
+          },
+          {
+            "hop": 3,
+            "times": [
+              26,
+              38,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "192.168.28.37"
+          },
+          {
+            "hop": 4,
+            "times": [
+              17,
+              13,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.3"
+          },
+          {
+            "hop": 5,
+            "times": [
+              25,
+              26,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.33"
+          },
+          {
+            "hop": 6,
+            "times": [
+              16,
+              14,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "10.188.79.99"
+          },
+          {
+            "hop": 7,
+            "times": [
+              25,
+              26,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "122.187.218.74"
+          },
+          {
+            "hop": 8,
+            "times": [
+              21,
+              26,
+              12
+            ],
+            "lossPct": 0,
+            "ip": "122.187.218.73"
+          },
+          {
+            "hop": 9,
+            "times": [
+              25,
+              17,
+              23
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.204"
+          },
+          {
+            "hop": 10,
+            "times": [
+              24,
+              33,
+              34
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 11,
+            "times": [
+              23,
+              24,
+              21
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.207"
+          },
+          {
+            "hop": 12,
+            "times": [
+              27,
+              33,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "192.178.86.203"
+          },
+          {
+            "hop": 13,
+            "times": [
+              30,
+              19,
+              25
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 26388,
+      "id": "Smsk3z9dkcn6l"
+    }
+  },
+  {
+    "id": "Smsk020t834w2",
+    "data": {
+      "timestamp": "2026-08-08T06:35:10.430Z",
+      "connectivity": {
+        "gateway": "10.188.228.163",
+        "gatewayArp": {
+          "ip": "10.188.228.163",
+          "mac": "8a-33-36-47-49-34",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 1,
+            "max": 5,
+            "avg": 2,
+            "jitter": 4,
+            "times": [
+              1,
+              5,
+              5,
+              1,
+              2
+            ],
+            "durationMs": 4235
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 17,
+            "max": 30,
+            "avg": 23,
+            "jitter": 13,
+            "times": [
+              21,
+              23,
+              30,
+              28,
+              17
+            ],
+            "durationMs": 4243
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 17,
+            "max": 30,
+            "avg": 25,
+            "jitter": 13,
+            "times": [
+              29,
+              24,
+              30,
+              29,
+              17
+            ],
+            "durationMs": 4238
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.188.228.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.188.228.163",
+          "dhcp": true,
+          "dhcpServer": "10.188.228.163",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "realme GT NEO 3 150W",
+          "bssid": "8a:33:36:47:49:34",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "10",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "87%",
+          "profile": "realme GT NEO 3 150W",
+          "hosted_network_status": "Not available",
+          "signalPct": 87,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "realme GT NEO 3 150W",
+          "bssid": "8a:33:36:47:49:34",
+          "signalPct": 82,
+          "channel": "10",
+          "radioType": "802.11ac",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 24,
+          "channel": "1",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Kantidhan_205",
+          "bssid": "54:a2:45:03:56:a0",
+          "signalPct": 8,
+          "channel": "8",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Friends Hostel A112",
+          "bssid": "f4:4d:5c:f1:e0:d4",
+          "signalPct": 16,
+          "channel": "6",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "INIDIUMTECH",
+          "bssid": "5a:23:e0:7c:7b:81",
+          "signalPct": 32,
+          "channel": "11",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.188.228.163",
+          "mac": "8a-33-36-47-49-34",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.188.228.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.102.18",
+          "mac": "01-00-5e-7f-66-12",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.188.228.163",
+        "status": "ok",
+        "lookupMs": 283,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2346,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 142,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 224,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              11,
+              1,
+              1
+            ],
+            "lossPct": 0,
+            "ip": "10.188.228.163"
+          },
+          {
+            "hop": 2,
+            "times": [
+              44,
+              16,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "192.168.72.131"
+          },
+          {
+            "hop": 3,
+            "times": [
+              12,
+              12,
+              18
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.19"
+          },
+          {
+            "hop": 4,
+            "times": [
+              14,
+              22,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.33"
+          },
+          {
+            "hop": 5,
+            "times": [
+              14,
+              20,
+              40
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.42"
+          },
+          {
+            "hop": 6,
+            "times": [
+              13,
+              14,
+              17
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.54"
+          },
+          {
+            "hop": 7,
+            "times": [
+              15,
+              20,
+              36
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.53"
+          },
+          {
+            "hop": 8,
+            "times": [
+              25,
+              21,
+              16
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.218"
+          },
+          {
+            "hop": 9,
+            "times": [
+              22,
+              54,
+              30
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              55,
+              31,
+              21
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.67"
+          },
+          {
+            "hop": 11,
+            "times": [
+              38,
+              17,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "142.251.77.95"
+          },
+          {
+            "hop": 12,
+            "times": [
+              22,
+              23,
+              27
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 22973,
+      "id": "Smsk020t834w2"
+    }
+  },
+  {
+    "id": "Smsjzy56ocznz",
+    "data": {
+      "timestamp": "2026-08-08T06:32:03.474Z",
+      "connectivity": {
+        "gateway": "10.188.228.163",
+        "gatewayArp": {
+          "ip": "10.188.228.163",
+          "mac": "8a-33-36-47-49-34",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 2,
+            "max": 52,
+            "avg": 21,
+            "jitter": 50,
+            "times": [
+              4,
+              52,
+              2,
+              8,
+              39
+            ],
+            "durationMs": 4436
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 22,
+            "max": 95,
+            "avg": 50,
+            "jitter": 73,
+            "times": [
+              49,
+              95,
+              27,
+              22,
+              60
+            ],
+            "durationMs": 4292
+          },
+          "internet": {
+            "sent": 5,
+            "received": 4,
+            "lost": 1,
+            "lossPct": 20,
+            "unreachable": 0,
+            "timeouts": 1,
+            "min": 21,
+            "max": 95,
+            "avg": 50,
+            "jitter": 74,
+            "times": [
+              58,
+              95,
+              26,
+              21
+            ],
+            "durationMs": 5968
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.188.228.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.188.228.163",
+          "dhcp": true,
+          "dhcpServer": "10.188.228.163",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "realme GT NEO 3 150W",
+          "bssid": "8a:33:36:47:49:34",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "WPA2-Personal",
+          "cipher": "CCMP",
+          "connection_mode": "Auto Connect",
+          "channel": "10",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "82%",
+          "profile": "realme GT NEO 3 150W",
+          "hosted_network_status": "Not available",
+          "signalPct": 82,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "realme GT NEO 3 150W",
+          "bssid": "8a:33:36:47:49:34",
+          "signalPct": 82,
+          "channel": "10",
+          "radioType": "802.11ac",
+          "auth": "WPA3-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 24,
+          "channel": "1",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Kantidhan_205",
+          "bssid": "54:a2:45:03:56:a0",
+          "signalPct": 8,
+          "channel": "8",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Friends Hostel A112",
+          "bssid": "f4:4d:5c:f1:e0:d4",
+          "signalPct": 16,
+          "channel": "6",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "INIDIUMTECH",
+          "bssid": "5a:23:e0:7c:7b:81",
+          "signalPct": 32,
+          "channel": "11",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.188.228.163",
+          "mac": "8a-33-36-47-49-34",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.188.228.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.102.18",
+          "mac": "01-00-5e-7f-66-12",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.188.228.163",
+        "status": "ok",
+        "lookupMs": 413,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2445,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 212,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 163,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              5,
+              6,
+              1
+            ],
+            "lossPct": 0,
+            "ip": "10.188.228.163"
+          },
+          {
+            "hop": 2,
+            "times": [
+              56,
+              27,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "192.168.72.131"
+          },
+          {
+            "hop": 3,
+            "times": [
+              24,
+              13,
+              25
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.19"
+          },
+          {
+            "hop": 4,
+            "times": [
+              19,
+              10,
+              19
+            ],
+            "lossPct": 0,
+            "ip": "192.168.116.33"
+          },
+          {
+            "hop": 5,
+            "times": [
+              18,
+              17,
+              28
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.34"
+          },
+          {
+            "hop": 6,
+            "times": [
+              22,
+              13,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.54"
+          },
+          {
+            "hop": 7,
+            "times": [
+              43,
+              12,
+              13
+            ],
+            "lossPct": 0,
+            "ip": "125.16.67.53"
+          },
+          {
+            "hop": 8,
+            "times": [
+              61,
+              19,
+              14
+            ],
+            "lossPct": 0,
+            "ip": "116.119.106.218"
+          },
+          {
+            "hop": 9,
+            "times": [
+              75,
+              31,
+              33
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 10,
+            "times": [
+              26,
+              13,
+              null
+            ],
+            "lossPct": 33,
+            "ip": "142.251.225.67"
+          },
+          {
+            "hop": 11,
+            "times": [
+              null,
+              29,
+              19
+            ],
+            "lossPct": 33,
+            "ip": "142.251.77.95"
+          },
+          {
+            "hop": 12,
+            "times": [
+              57,
+              47,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 28892,
+      "id": "Smsjzy56ocznz"
+    }
+  },
+  {
+    "id": "Smshxwm3a5d23",
+    "data": {
+      "timestamp": "2026-08-06T19:59:23.712Z",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "02-38-b3-7c-c7-2c",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 4,
+            "max": 41,
+            "avg": 16,
+            "jitter": 37,
+            "times": [
+              13,
+              5,
+              41,
+              4,
+              18
+            ],
+            "durationMs": 4164
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 48,
+            "max": 71,
+            "avg": 56,
+            "jitter": 23,
+            "times": [
+              51,
+              48,
+              51,
+              59,
+              71
+            ],
+            "durationMs": 4205
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 50,
+            "max": 74,
+            "avg": 60,
+            "jitter": 24,
+            "times": [
+              66,
+              50,
+              52,
+              61,
+              74
+            ],
+            "durationMs": 4203
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "02:38:b3:7c:c7:2c",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "Open",
+          "cipher": "None",
+          "connection_mode": "Profile",
+          "channel": "11",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "65",
+          "signal": "94%",
+          "profile": "Himanshu",
+          "hosted_network_status": "Not available",
+          "signalPct": 94,
+          "rxRate": "144",
+          "txRate": "65",
+          "radioType": "802.11n",
+          "auth": "Open",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "02:38:b3:7c:c7:2c",
+          "signalPct": 93,
+          "channel": "11",
+          "radioType": "802.11ax",
+          "auth": "Open"
+        },
+        {
+          "ssid": "Friends Hostel A104",
+          "bssid": "fc:22:f4:2d:b3:84",
+          "signalPct": 4,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Kantidhan_205",
+          "bssid": "54:a2:45:03:56:a0",
+          "signalPct": 18,
+          "channel": "2",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Friends hostel_A103",
+          "bssid": "fc:22:f4:2a:3d:6c",
+          "signalPct": 0,
+          "channel": "6",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "02-38-b3-7c-c7-2c",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 171,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2397,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 253,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 267,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              3,
+              3,
+              5
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              73,
+              233,
+              58
+            ],
+            "lossPct": 0,
+            "ip": "192.168.29.10"
+          },
+          {
+            "hop": 3,
+            "times": [
+              77,
+              31,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "192.168.28.37"
+          },
+          {
+            "hop": 4,
+            "times": [
+              41,
+              51,
+              54
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.4"
+          },
+          {
+            "hop": 5,
+            "times": [
+              53,
+              42,
+              61
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.33"
+          },
+          {
+            "hop": 6,
+            "times": [
+              50,
+              29,
+              52
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.99"
+          },
+          {
+            "hop": 7,
+            "times": [
+              35,
+              35,
+              30
+            ],
+            "lossPct": 0,
+            "ip": "125.20.207.126"
+          },
+          {
+            "hop": 8,
+            "times": [
+              56,
+              52,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "125.20.207.125"
+          },
+          {
+            "hop": 9,
+            "times": [
+              71,
+              44,
+              41
+            ],
+            "lossPct": 0,
+            "ip": "116.119.36.22"
+          },
+          {
+            "hop": 10,
+            "times": [
+              52,
+              61,
+              46
+            ],
+            "lossPct": 0,
+            "ip": "116.119.164.99"
+          },
+          {
+            "hop": 11,
+            "times": [
+              58,
+              57,
+              46
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 12,
+            "times": [
+              53,
+              50,
+              58
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.207"
+          },
+          {
+            "hop": 13,
+            "times": [
+              50,
+              56,
+              60
+            ],
+            "lossPct": 0,
+            "ip": "142.250.214.109"
+          },
+          {
+            "hop": 14,
+            "times": [
+              46,
+              61,
+              59
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 25750,
+      "id": "Smshxwm3a5d23"
+    }
+  },
+  {
+    "id": "Smshxsl4gtx4i",
+    "data": {
+      "timestamp": "2026-08-06T19:56:15.544Z",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "02-38-b3-7c-c7-2c",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 2,
+            "max": 5,
+            "avg": 3,
+            "jitter": 3,
+            "times": [
+              2,
+              3,
+              4,
+              4,
+              5
+            ],
+            "durationMs": 4214
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 40,
+            "max": 52,
+            "avg": 47,
+            "jitter": 12,
+            "times": [
+              46,
+              52,
+              40,
+              45,
+              52
+            ],
+            "durationMs": 4248
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 40,
+            "max": 53,
+            "avg": 47,
+            "jitter": 13,
+            "times": [
+              40,
+              50,
+              53,
+              45,
+              51
+            ],
+            "durationMs": 4255
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "02:38:b3:7c:c7:2c",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "Open",
+          "cipher": "None",
+          "connection_mode": "Profile",
+          "channel": "11",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "82%",
+          "profile": "Himanshu",
+          "hosted_network_status": "Not available",
+          "signalPct": 82,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "Open",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "02:38:b3:7c:c7:2c",
+          "signalPct": 100,
+          "channel": "11",
+          "radioType": "802.11ax",
+          "auth": "Open"
+        },
+        {
+          "ssid": "WIFI-2.4Ghz",
+          "bssid": "bc:16:65:83:7b:30",
+          "signalPct": 2,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 24,
+          "channel": "1",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "02-38-b3-7c-c7-2c",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 130,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2426,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 334,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 266,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              6,
+              3,
+              2
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              42,
+              231,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "192.168.29.10"
+          },
+          {
+            "hop": 3,
+            "times": [
+              39,
+              27,
+              31
+            ],
+            "lossPct": 0,
+            "ip": "192.168.28.37"
+          },
+          {
+            "hop": 4,
+            "times": [
+              29,
+              28,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.4"
+          },
+          {
+            "hop": 5,
+            "times": [
+              35,
+              29,
+              50
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.33"
+          },
+          {
+            "hop": 6,
+            "times": [
+              52,
+              28,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.99"
+          },
+          {
+            "hop": 7,
+            "times": [
+              38,
+              29,
+              26
+            ],
+            "lossPct": 0,
+            "ip": "125.20.207.126"
+          },
+          {
+            "hop": 8,
+            "times": [
+              39,
+              36,
+              53
+            ],
+            "lossPct": 0,
+            "ip": "125.20.207.125"
+          },
+          {
+            "hop": 9,
+            "times": [
+              41,
+              45,
+              44
+            ],
+            "lossPct": 0,
+            "ip": "116.119.36.22"
+          },
+          {
+            "hop": 10,
+            "times": [
+              43,
+              40,
+              42
+            ],
+            "lossPct": 0,
+            "ip": "116.119.164.99"
+          },
+          {
+            "hop": 11,
+            "times": [
+              64,
+              55,
+              49
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 12,
+            "times": [
+              43,
+              41,
+              45
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.207"
+          },
+          {
+            "hop": 13,
+            "times": [
+              43,
+              42,
+              39
+            ],
+            "lossPct": 0,
+            "ip": "142.250.214.109"
+          },
+          {
+            "hop": 14,
+            "times": [
+              37,
+              45,
+              44
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 26039,
+      "id": "Smshxsl4gtx4i"
+    }
+  },
+  {
+    "id": "Smshxrsiv1si2",
+    "data": {
+      "timestamp": "2026-08-06T19:55:38.509Z",
+      "connectivity": {
+        "gateway": "10.134.148.168",
+        "gatewayArp": {
+          "ip": "10.134.148.168",
+          "mac": "02-38-b3-7c-c7-2c",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        "hasGateway": true,
+        "internetReachable": true,
+        "gatewayReachable": true,
+        "pings": {
+          "gateway": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 3,
+            "max": 48,
+            "avg": 21,
+            "jitter": 45,
+            "times": [
+              5,
+              43,
+              3,
+              9,
+              48
+            ],
+            "durationMs": 4232
+          },
+          "internet": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 51,
+            "max": 87,
+            "avg": 65,
+            "jitter": 36,
+            "times": [
+              51,
+              56,
+              69,
+              66,
+              87
+            ],
+            "durationMs": 4268
+          },
+          "alt": {
+            "sent": 5,
+            "received": 5,
+            "lost": 0,
+            "lossPct": 0,
+            "unreachable": 0,
+            "timeouts": 0,
+            "min": 51,
+            "max": 89,
+            "avg": 66,
+            "jitter": 38,
+            "times": [
+              51,
+              57,
+              68,
+              66,
+              89
+            ],
+            "durationMs": 4262
+          }
+        },
+        "activeIface": {
+          "name": "Wi-Fi",
+          "ipv4": "10.134.148.122",
+          "subnet": "255.255.255.0",
+          "gateway": "10.134.148.168",
+          "dhcp": true,
+          "dhcpServer": "10.134.148.168",
+          "mac": "7C-E9-D3-5E-F2-F2",
+          "apipa": false
+        }
+      },
+      "wifi": {
+        "available": true,
+        "connected": true,
+        "data": {
+          "there_is_1_interface_on_the_system": "",
+          "name": "Wi-Fi",
+          "description": "Broadcom 802.11n Network Adapter",
+          "guid": "72f41beb-f9fa-4125-897d-0b66d558d9fe",
+          "physical_address": "7c:e9:d3:5e:f2:f2",
+          "state": "connected",
+          "ssid": "Himanshu",
+          "bssid": "02:38:b3:7c:c7:2c",
+          "network_type": "Infrastructure",
+          "radio_type": "802.11n",
+          "authentication": "Open",
+          "cipher": "None",
+          "connection_mode": "Profile",
+          "channel": "11",
+          "receive_rate_(mbps)": "144",
+          "transmit_rate_(mbps)": "72",
+          "signal": "80%",
+          "profile": "Himanshu",
+          "hosted_network_status": "Not available",
+          "signalPct": 80,
+          "rxRate": "144",
+          "txRate": "72",
+          "radioType": "802.11n",
+          "auth": "Open",
+          "band": "2.4 GHz"
+        }
+      },
+      "neighbors": [
+        {
+          "ssid": "Himanshu",
+          "bssid": "02:38:b3:7c:c7:2c",
+          "signalPct": 100,
+          "channel": "11",
+          "radioType": "802.11ax",
+          "auth": "Open"
+        },
+        {
+          "ssid": "WIFI-2.4Ghz",
+          "bssid": "bc:16:65:83:7b:30",
+          "signalPct": 2,
+          "channel": "11",
+          "radioType": "802.11n",
+          "auth": "WPA2-Personal"
+        },
+        {
+          "ssid": "Flat 406",
+          "bssid": "16:32:51:8d:e4:80",
+          "signalPct": 24,
+          "channel": "1",
+          "radioType": "802.11ax",
+          "auth": "WPA2-Personal"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Ethernet",
+          "adminState": "Enabled",
+          "state": "Disconnected",
+          "type": "Dedicated"
+        },
+        {
+          "name": "Wi-Fi",
+          "adminState": "Enabled",
+          "state": "Connected",
+          "type": "Dedicated"
+        }
+      ],
+      "arp": [
+        {
+          "ip": "10.134.148.168",
+          "mac": "02-38-b3-7c-c7-2c",
+          "type": "dynamic",
+          "vendor": "Unknown"
+        },
+        {
+          "ip": "10.134.148.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.22",
+          "mac": "01-00-5e-00-00-16",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.251",
+          "mac": "01-00-5e-00-00-fb",
+          "type": "static"
+        },
+        {
+          "ip": "224.0.0.252",
+          "mac": "01-00-5e-00-00-fc",
+          "type": "static"
+        },
+        {
+          "ip": "239.255.255.250",
+          "mac": "01-00-5e-7f-ff-fa",
+          "type": "static"
+        },
+        {
+          "ip": "255.255.255.255",
+          "mac": "ff-ff-ff-ff-ff-ff",
+          "type": "static"
+        }
+      ],
+      "dns": {
+        "server": "UnKnown",
+        "address": "10.134.148.168",
+        "status": "ok",
+        "lookupMs": 142,
+        "tests": [
+          {
+            "server": "UnKnown",
+            "ms": 2400,
+            "ok": false
+          },
+          {
+            "server": "8.8.8.8",
+            "ms": 304,
+            "ok": true
+          },
+          {
+            "server": "1.1.1.1",
+            "ms": 238,
+            "ok": true
+          }
+        ]
+      },
+      "mtu": {
+        "payload": 1472,
+        "mtu": 1500,
+        "note": null
+      },
+      "ipv6": {
+        "enabled": true,
+        "loopbackOk": true,
+        "internetOk": false
+      },
+      "trace": {
+        "hops": [
+          {
+            "hop": 1,
+            "times": [
+              4,
+              5,
+              2
+            ],
+            "lossPct": 0,
+            "ip": "10.134.148.168"
+          },
+          {
+            "hop": 2,
+            "times": [
+              46,
+              243,
+              34
+            ],
+            "lossPct": 0,
+            "ip": "192.168.29.10"
+          },
+          {
+            "hop": 3,
+            "times": [
+              68,
+              38,
+              36
+            ],
+            "lossPct": 0,
+            "ip": "192.168.28.37"
+          },
+          {
+            "hop": 4,
+            "times": [
+              36,
+              28,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.4"
+          },
+          {
+            "hop": 5,
+            "times": [
+              32,
+              71,
+              50
+            ],
+            "lossPct": 0,
+            "ip": "192.168.31.33"
+          },
+          {
+            "hop": 6,
+            "times": [
+              40,
+              25,
+              30
+            ],
+            "lossPct": 0,
+            "ip": "192.168.251.99"
+          },
+          {
+            "hop": 7,
+            "times": [
+              31,
+              33,
+              29
+            ],
+            "lossPct": 0,
+            "ip": "125.20.207.126"
+          },
+          {
+            "hop": 8,
+            "times": [
+              39,
+              32,
+              42
+            ],
+            "lossPct": 0,
+            "ip": "125.20.207.125"
+          },
+          {
+            "hop": 9,
+            "times": [
+              55,
+              46,
+              43
+            ],
+            "lossPct": 0,
+            "ip": "116.119.36.22"
+          },
+          {
+            "hop": 10,
+            "times": [
+              51,
+              41,
+              40
+            ],
+            "lossPct": 0,
+            "ip": "116.119.164.99"
+          },
+          {
+            "hop": 11,
+            "times": [
+              45,
+              57,
+              39
+            ],
+            "lossPct": 0,
+            "ip": "72.14.212.48"
+          },
+          {
+            "hop": 12,
+            "times": [
+              47,
+              48,
+              65
+            ],
+            "lossPct": 0,
+            "ip": "142.251.225.207"
+          },
+          {
+            "hop": 13,
+            "times": [
+              45,
+              46,
+              44
+            ],
+            "lossPct": 0,
+            "ip": "142.250.214.109"
+          },
+          {
+            "hop": 14,
+            "times": [
+              38,
+              38,
+              45
+            ],
+            "lossPct": 0,
+            "ip": "8.8.8.8"
+          }
+        ]
+      },
+      "scanDurationMs": 26016,
+      "id": "Smshxrsiv1si2"
+    }
+  }
+]

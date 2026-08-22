@@ -1,0 +1,78 @@
+===============================================================
+ NETFAULT ANALYZER - HOW TO RUN (College Setup Guide)
+ Data Communication Project
+===============================================================
+
+ REQUIREMENT
+------------
+Only Node.js is required (https://nodejs.org - install the LTS version).
+No other software or npm package is needed.
+
+ HOW TO RUN (2 STEPS)
+----------------------
+ STEP 1: Double-click start.bat (or in cmd/terminal in the NETPLUS folder):
+            node server.js
+
+ STEP 2: The browser will open automatically.
+         If it does not open, type this in the browser:  http://127.0.0.1:3000
+         (the server binds to 127.0.0.1 = localhost only, for safety)
+
+ USAGE
+------
+ Tab 1 (Live Scan):
+   -> Click the "Run Full Diagnostics" button
+   -> The real scan completes in ~25 seconds
+   -> Topology, signal, graphs, and root cause are shown
+   -> "Save Report" saves an HTML report to the reports/ folder
+   -> "Save Diagnosis PDF" saves a PDF report to reports/
+   -> Every scan is auto-saved to the Scan History table - select two
+      scans and click "Compare Selected"; a fault-stats pie chart is
+      shown above the table
+   -> Fix Actions: "DHCP Renew" and "DNS Flush" run the real commands
+   -> "Copy Evidence" / "Save Topology PNG" export the diagnosis
+
+ Tab 2 (Simulation Lab):
+   -> Choose a connection type (WiFi / LAN / Mobile)
+   -> Select a scenario (15 available)
+   -> Click "Run Simulation"
+
+ Tab 3 (Survey & Mapping):
+   -> Scan & measure WiFi + speed + GPS, save survey points, view map/heatmap
+   -> Optional: upload a floor-plan image and the heatmap draws on it
+   -> Signal timeline graph, HTML survey report button
+   -> Export: CSV / Excel / JSON / PDF / KML (KML opens in Google Earth)
+
+ Tab 4 (Report):
+   -> The full diagnosis report is displayed inside the app
+   -> Use "Print Report" or "Save to File (reports/)" or "Save Diagnosis PDF"
+
+ Tab 5 (Theory):
+   -> OSI layers, RSSI concept, engine rules, viva Q&A
+
+ Extras:
+   -> Top-right: English / Hindi (हिंदी) language switch and Light/Dark theme
+   -> config.json: change port, bindHost, pingCount, dnsServers, historyLimit
+
+ COMMON PROBLEMS
+-----------------
+ 1. "'node' is not recognized"
+    -> Node.js is not installed or not in PATH. Install Node and
+       restart the PC.
+
+ 2. Port already in use
+    -> Change "port" in config.json (e.g. 3000 -> 8080), then open
+       http://127.0.0.1:8080
+
+ 3. Signal % is empty
+    -> Stay connected to WiFi. Check in CMD:
+       netsh wlan show interfaces
+
+ 4. No internet in the college
+    -> Live Scan still reports the local/gateway part; the internet
+       part shows as failing (which is itself a diagnosis - ISP issue).
+       The Simulation Lab always works for demos (no internet needed).
+
+ NOTE: The files saved in the reports/ folder are useful for submission -
+ they are timestamped HTML and PDF reports. Scan history is stored in
+ data/history.json and survey points in data/surveys.json.
+===============================================================
