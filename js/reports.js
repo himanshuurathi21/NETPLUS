@@ -336,9 +336,9 @@
 
   function rowHtml(s, idx) {
     const q = qualityOf(s.signalPct);
-    const sel = selected.has(s._id) ? ' checked' : '';
+    const sel = selected.has(s.id) ? ' checked' : '';
     return '<label class="hist-row' + (sel ? ' sel' : '') + '">' +
-      '<input type="checkbox" class="rep-chk" data-id="' + s._id + '"' + sel + '>' +
+      '<input type="checkbox" class="rep-chk" data-id="' + s.id + '"' + sel + '>' +
       '<span class="hist-dot" style="background:' + q.color + '"></span>' +
       '<span class="hist-main"><strong>' + (s.locationName || 'Unnamed') + '</strong>' +
       '<small>' + (s.ssid || 'n/a') + ' &middot; ' + (s.networkType || 'Unknown') + ' &middot; ' + (s.band || '') + '</small></span>' +
@@ -370,7 +370,7 @@
   }
 
   function selectAllVisible() {
-    filtered.forEach(s => selected.add(s._id));
+    filtered.forEach(s => selected.add(s.id));
     render();
   }
   function deselectAll() {
@@ -381,7 +381,7 @@
   function generate() {
     if (!selected.size) return;
     const branding = collectBranding();
-    const sel = surveys.filter(s => selected.has(s._id));
+    const sel = surveys.filter(s => selected.has(s.id));
     const btn = $('#btnGenerateReport');
     btn.disabled = true; btn.textContent = 'Generating…';
     setTimeout(() => {

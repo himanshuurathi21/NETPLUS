@@ -768,13 +768,15 @@ function sendSecurityHeaders(res) {
   res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://speed.cloudflare.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'");
 }
 
-const LOCAL_HOSTNAMES = ['localhost', '127.0.0.1', '::1'];
+const LOCAL_HOSTNAMES = ['localhost', '127.0.0.1', '::1', '[::1]'];
 function isSameOrigin(req) {
   const origin = req.headers.origin;
   if (!origin) return true;
+  const host = req.headers.host;
   try {
     const o = new URL(origin);
-    return LOCAL_HOSTNAMES.indexOf(o.hostname) !== -1 && String(o.port || '') === String(PORT);
+    if (host && o.host === host) return true;
+    return LOCAL_HOSTNAMES.indexOf(o.hostname) !== -1;
   } catch (e) { return false; }
 }
 
