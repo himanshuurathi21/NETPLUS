@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: netplus
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    healthCheckPath: "/"
+    envVars:
+      - key: HOST
+        value: "0.0.0.0"
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: "/data"
+      - key: EXPORT_DIR
+        value: "/data/exports"

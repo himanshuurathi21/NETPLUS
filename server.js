@@ -5,18 +5,24 @@ const { execFile, exec } = require('child_process');
 const { performance } = require('perf_hooks');
 
 const ROOT = __dirname;
-const SURVEYS_DIR = path.join(ROOT, 'Surveys');
-const SURVEYS_FILE = path.join(ROOT, 'data', 'surveys.json');
-const HISTORY_FILE = path.join(ROOT, 'data', 'history.json');
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(ROOT, 'data');
+const SURVEYS_DIR = process.env.EXPORT_DIR ? path.resolve(process.env.EXPORT_DIR) : path.join(ROOT, 'Surveys');
+const SURVEYS_FILE = path.join(DATA_DIR, 'surveys.json');
+const HISTORY_FILE = path.join(DATA_DIR, 'history.json');
 const CONFIG_FILE = path.join(ROOT, 'config.json');
 const CONFIG_DEFAULTS = { port: 3000, bindHost: '127.0.0.1', pingCount: 5, pingTimeoutMs: 2000, traceMaxHops: 15, historyLimit: 25, dnsServers: ['8.8.8.8', '1.1.1.1'] };
 function loadConfig() {
   try { return Object.assign({}, CONFIG_DEFAULTS, JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'))); } catch (e) { return CONFIG_DEFAULTS; }
 }
 const CFG = loadConfig();
-const PORT = CFG.port;
-const BIND = CFG.bindHost;
+const PORT = process.env.PORT ? (parseInt(process.env.PORT, 10) || CFG.port) : CFG.port;
+const BIND = process.env.HOST || '0.0.0.0';
+const IS_WIN = process.platform === 'win32';
 const HISTORY_LIMIT = Math.max(1, CFG.historyLimit || 9999);
+
+// Make sure storage directories exist (Render uses /data which may not pre-exist).
+try { fs.mkdirSync(DATA_DIR, { recursive: true }); } catch (e) {}
+try { fs.mkdirSync(SURVEYS_DIR, { recursive: true }); } catch (e) {}
 
 function runCmd(cmd, args, timeoutMs) {
   return new Promise((resolve) => {
@@ -25,6 +31,18 @@ function runCmd(cmd, args, timeoutMs) {
       resolve({ ok: !err, out, code: err ? err.code : 0 });
     });
   });
+}
+
+// Cross-platform OS command builders (live scan works on both Windows and Linux).
+function pingArgs(host) {
+  return IS_WIN
+    ? ['-n', String(CFG.pingCount), '-w', String(CFG.pingTimeoutMs), host]
+    : ['-c', String(CFG.pingCount), '-w', String(Math.max(1, Math.ceil(CFG.pingTimeoutMs / 1000))), host];
+}
+function traceCmd(host) {
+  return IS_WIN
+    ? { cmd: 'tracert', args: ['-d', '-h', String(CFG.traceMaxHops), '-w', '1000', host] }
+    : { cmd: 'traceroute', args: ['-m', String(CFG.traceMaxHops), '-w', '1', host] };
 }
 
 function parseWlanInterfaces(out) {
@@ -321,7 +339,7 @@ async function runNetworkScan() {
   ].filter(h => h.host);
   const pings = {};
   await Promise.all(hosts.map(async (h) => {
-    const r = await runCmd('ping', ['-n', String(CFG.pingCount), '-w', String(CFG.pingTimeoutMs), h.host], 15000);
+    const r = await runCmd('ping', pingArgs(h.host), 15000);
     pings[h.key] = parsePing(r.out);
   }));
   const dnsT0 = performance.now();
@@ -672,7 +690,7 @@ async function runFullScan(signal) {
   const pingResults = {};
   await Promise.all(hosts.map(async (h) => {
     const t0 = performance.now();
-    const r = await runCmd('ping', ['-n', String(CFG.pingCount), '-w', String(CFG.pingTimeoutMs), h.host], 15000);
+    const r = await runCmd('ping', pingArgs(h.host), 15000);
     const p = parsePing(r.out);
     p.durationMs = Math.round(performance.now() - t0);
     pingResults[h.key] = p;
@@ -689,8 +707,10 @@ async function runFullScan(signal) {
   const mtu = await detectMtu(gateway);
   const ipv6 = await ipv6Test();
   if (isCancelled()) return null;
-  const tr = await runCmd('tracert', ['-d', '-h', String(CFG.traceMaxHops), '-w', '1000', '8.8.8.8'], 60000);
-  const trace = parseTracert(tr.out);
+  const tc = traceCmd('8.8.8.8');
+  const tr = await runCmd(tc.cmd, tc.args, 60000);
+  let trace = { hops: [] };
+  try { trace = parseTracert(tr.out); } catch (e) { trace = { hops: [], error: String((e && e.message) || e) }; }
 
   const gatewayArp = gateway ? (scan.arp.find(e => e.ip === gateway) || null) : null; if (gatewayArp) gatewayArp.vendor = vendorFor(gatewayArp.mac);
 
@@ -985,6 +1005,11 @@ const server = http.createServer(async (req, res) => {
       };
       const a = actions[String(body.action || '')];
       if (!a) { res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' }); res.end(JSON.stringify({ ok: false, error: 'Unknown action' })); return; }
+      if (!IS_WIN) {
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ ok: false, action: body.action, label: a.label, note: 'OS network commands (ipconfig / netsh) are only available on Windows hosts. Run the server on Windows for live DHCP/DNS actions, or use the Survey & Mapping feature for reports.' }));
+        return;
+      }
       const outputs = [];
       for (const [cmd, args] of a.steps) {
         const r = await runCmd(cmd, args, 25000);
@@ -1032,7 +1057,7 @@ server.listen(PORT, BIND, () => {
   console.log(`  Server running: http://localhost:${PORT}`);
   console.log('==========================================');
   console.log('');
-  exec('start "" http://' + BIND + ':' + PORT, { windowsHide: true, shell: 'cmd.exe' }, () => {});
+  if (IS_WIN) exec('start "" http://' + BIND + ':' + PORT, { windowsHide: true, shell: 'cmd' }, () => {});
 });
 
 process.on('uncaughtException', (e) => {

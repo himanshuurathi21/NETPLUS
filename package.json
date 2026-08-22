@@ -10,5 +10,6 @@
   "keywords": ["network", "diagnosis", "root-cause", "data-communication"],
   "author": "",
   "license": "MIT",
+  "engines": { "node": ">=18" },
   "dependencies": {}
 }
