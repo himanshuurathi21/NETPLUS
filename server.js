@@ -147,18 +147,19 @@ function parseIpconfig(out) {
 }
 
 function parsePing(out) {
+  const o = out || '';
   const times = [];
-  const tm = out.matchAll(/time[=<](\d+)ms/gi);
-  for (const m of tm) times.push(parseInt(m[1], 10));
-  const unreachable = (out.match(/Destination host unreachable/gi) || []).length;
-  const timeouts = (out.match(/Request timed out/gi) || []).length;
-  const sentM = out.match(/Sent = (\d+)/i);
-  const recvM = out.match(/Received = (\d+)/i);
-  const lostM = out.match(/Lost = (\d+)/i);
-  const minM = out.match(/Minimum = (\d+)ms/i);
-  const maxM = out.match(/Maximum = (\d+)ms/i);
-  const avgM = out.match(/Average = (\d+)ms/i);
-  const sent = sentM ? parseInt(sentM[1], 10) : times.length + timeouts + unreachable;
+  const tm = o.matchAll(/time[=<](\d+(?:\.\d+)?)\s*ms/gi);
+  for (const m of tm) times.push(parseFloat(m[1]));
+  const unreachable = (o.match(/Destination host unreachable/gi) || []).length;
+  const timeouts = (o.match(/Request timed out|timed out|no answer yet|no route to host|Network is unreachable/gi) || []).length;
+  const sentM = o.match(/Sent = (\d+)/i) || o.match(/(\d+)\s+packets transmitted/i);
+  const recvM = o.match(/Received = (\d+)/i) || o.match(/(\d+)\s+received/i);
+  const lostM = o.match(/Lost = (\d+)/i) || o.match(/(\d+)% packet loss/i);
+  const minM = o.match(/Minimum = (\d+(?:\.\d+)?)ms/i) || o.match(/min\/avg\/max\/mdev\s*=\s*([\d.]+)\//i);
+  const maxM = o.match(/Maximum = (\d+(?:\.\d+)?)ms/i) || o.match(/min\/avg\/max\/mdev\s*=\s*[\d.]+\/[\d.]+\/([\d.]+)/i);
+  const avgM = o.match(/Average = (\d+(?:\.\d+)?)ms/i) || o.match(/min\/avg\/max\/mdev\s*=\s*[\d.]+\/([\d.]+)\//i);
+  const sent = sentM ? parseInt(sentM[1], 10) : (times.length + timeouts + unreachable);
   const received = recvM ? parseInt(recvM[1], 10) : times.length;
   const lost = lostM ? parseInt(lostM[1], 10) : (sent - received);
   let jitter = 0;
@@ -167,17 +168,18 @@ function parsePing(out) {
   }
   return {
     sent, received, lost,
-    lossPct: sent > 0 ? Math.round((lost / sent) * 100) : 100,
+    lossPct: sent > 0 ? Math.round((lost / sent) * 100) : (received > 0 ? 0 : 100),
     unreachable, timeouts,
-    min: minM ? parseInt(minM[1], 10) : (times.length ? Math.min(...times) : null),
-    max: maxM ? parseInt(maxM[1], 10) : (times.length ? Math.max(...times) : null),
-    avg: avgM ? parseInt(avgM[1], 10) : (times.length ? Math.round(times.reduce((a, b) => a + b, 0) / times.length) : null),
+    min: minM ? parseFloat(minM[1]) : (times.length ? Math.min(...times) : null),
+    max: maxM ? parseFloat(maxM[1]) : (times.length ? Math.max(...times) : null),
+    avg: avgM ? parseFloat(avgM[1]) : (times.length ? Math.round(times.reduce((a, b) => a + b, 0) / times.length * 10) / 10 : null),
     jitter: Math.round(jitter * 10) / 10,
     times
   };
 }
 
 function parseNslookup(out) {
+  if (!out || !String(out).trim()) return { server: null, address: null, status: 'failed' };
   let server = null, address = null;
   for (const raw of out.split(/\r?\n/)) {
     const s = raw.match(/^\s*Server:\s*(.+)$/);
@@ -231,6 +233,90 @@ function inferBand(iface) {
   return '6 GHz';
 }
 
+function isIpv4(s) { return typeof s === 'string' && /^(\d{1,3}\.){3}\d{1,3}$/.test(s); }
+function cidrToMask(prefix) {
+  const n = parseInt(prefix, 10);
+  if (isNaN(n)) return null;
+  let mask = '';
+  for (let i = 0; i < 4; i++) {
+    const bits = Math.min(8, Math.max(0, n - i * 8));
+    mask += (i ? '.' : '') + (bits ? (256 - Math.pow(2, 8 - bits)) : 0);
+  }
+  return mask;
+}
+function nodeDnsLookup(host) {
+  return new Promise((res) => {
+    try { require('dns').lookup(host, (e, a) => res((e || !a) ? null : (typeof a === 'string' ? a : (a && a.address) || null))); }
+    catch (e) { res(null); }
+  });
+}
+async function linuxWifi() {
+  if (IS_WIN) return { available: false, connected: false, data: null };
+  try {
+    const r = await runCmd('iwgetid', ['-r'], 5000);
+    if (r.ok && r.out.trim()) {
+      const ssid = r.out.trim();
+      const s = await runCmd('iwconfig', [ssid], 4000);
+      let signalPct = null;
+      const sm = (s.out || '').match(/Signal level[=:]\s*-?(\d+)/i) || (s.out || '').match(/(\d+)\/70/i);
+      if (sm) { const v = parseInt(sm[1], 10); signalPct = Math.max(0, Math.min(100, v)); }
+      return { available: true, connected: true, data: { ssid, signalPct, channel: null, radioType: null, auth: null, state: 'connected' } };
+    }
+  } catch (e) {}
+  return { available: false, connected: false, data: null };
+}
+// Gathers real interface/gateway/wifi info on Linux using `ip` (JSON). Degrades to empty on any failure.
+async function linuxNet() {
+  const empty = { ipconfig: [], interfaces: [], routeGateway: null, wifi: { available: false, connected: false, data: null } };
+  if (IS_WIN) return empty;
+  try {
+    const [addr, route, link] = await Promise.all([
+      runCmd('ip', ['-json', 'addr'], 8000),
+      runCmd('ip', ['-json', 'route', 'show', 'default'], 8000),
+      runCmd('ip', ['-json', 'link'], 8000)
+    ]);
+    let defs = [];
+    try { defs = JSON.parse(route.out || '[]'); } catch (e) {}
+    let routeGateway = null;
+    for (const r of defs) { if (r.gateway && isIpv4(r.gateway)) { routeGateway = r.gateway; break; } }
+    const links = {};
+    try { JSON.parse(link.out || '[]').forEach(l => { if (l.ifname) links[l.ifname] = l; }); } catch (e) {}
+    const adapters = [];
+    let addrList = [];
+    try { addrList = JSON.parse(addr.out || '[]'); } catch (e) {}
+    for (const a of addrList) {
+      const name = a.ifname;
+      const l = links[name] || {};
+      const ai = (a.addr_info || []).find(x => x.family === 'inet');
+      const ipv4 = ai ? ai.local : null;
+      const up = (a.operstate || '').toUpperCase() === 'UP';
+      adapters.push({
+        adapterType: 'Linux', name,
+        mediaState: up ? 'Connected' : 'Disconnected',
+        description: l.info || '',
+        mac: (l.address || '').toUpperCase(),
+        dhcp: null, ipv4,
+        subnet: ai && ai.prefixlen ? cidrToMask(ai.prefixlen) : null,
+        gateway: null, dhcpServer: null,
+        apipa: ipv4 ? /^169\.254\./.test(ipv4) : false,
+        state: up ? 'Connected' : 'Disconnected',
+        linkMtu: l.mtu || null
+      });
+    }
+    if (routeGateway) {
+      const def = defs.find(r => r.gateway === routeGateway);
+      const ad = (def && def.dev && adapters.find(x => x.name === def.dev)) || adapters.find(x => x.ipv4);
+      if (ad) ad.gateway = routeGateway;
+    }
+    const wifi = await linuxWifi();
+    return {
+      ipconfig: adapters,
+      interfaces: adapters.map(a => ({ name: a.name, adminState: a.state === 'Connected' ? 'Enabled' : 'Disabled', state: a.state, type: 'Linux' })),
+      routeGateway, wifi
+    };
+  } catch (e) { return empty; }
+}
+
 function getLanSpeed() {
   return runCmd('powershell', ['-NoProfile', '-NonInteractive', '-Command',
     'Get-NetAdapter | Where-Object { $_.Status -eq "Up" } | Select-Object Name,InterfaceDescription,LinkSpeed,MacAddress | ConvertTo-Json -Compress'], 12000)
@@ -264,6 +350,7 @@ function vendorFor(mac) {
 
 async function detectMtu(gateway) {
   if (!gateway) return { payload: null, mtu: null, note: 'no gateway' };
+  if (!IS_WIN) return { payload: null, mtu: null, note: 'linux: MTU not probed' };
   const probes = [1472, 1400, 1300, 1200, 1000, 800, 500];
   let payload = null;
   for (const size of probes) {
@@ -275,6 +362,13 @@ async function detectMtu(gateway) {
 }
 
 async function ipv6Test() {
+  if (!IS_WIN) {
+    const loop = await runCmd('ping', ['-6', '-c', '2', '::1'], 6000).catch(() => ({ out: '' }));
+    const loopOk = /from ::1/i.test(loop.out || '');
+    const inet = await runCmd('ping', ['-6', '-c', '3', '2606:4700:4700::1111'], 12000).catch(() => ({ out: '' }));
+    const inetOk = /from/i.test(inet.out || '') && /2606:4700/i.test(inet.out || '');
+    return { enabled: loopOk, loopbackOk: loopOk, internetOk: inetOk };
+  }
   const loop = await runCmd('ping', ['-n', '2', '-w', '1500', '::1'], 6000);
   const loopOk = /Reply from ::1/i.test(loop.out || '');
   const inet = await runCmd('ping', ['-n', '3', '-w', '2000', '2606:4700:4700::1111'], 12000);
@@ -319,17 +413,24 @@ async function runNetworkScan() {
     runCmd('ipconfig', ['/all'], 8000),
     runCmd('arp', ['-a'], 8000)
   ]);
-  const wifi = parseWlanInterfaces(wlan.out);
+  let wifi = parseWlanInterfaces(wlan.out);
   if (wifi && wifi.data) wifi.data.band = inferBand(wifi.data);
   const neighbors = parseNeighbors(nets.out);
-  const interfaces = parseInterfaces(ifs.out);
-  const ipconfig = parseIpconfig(ipc.out);
+  let interfaces = parseInterfaces(ifs.out);
+  let ipconfig = parseIpconfig(ipc.out);
   const arpList = parseArp(arp.out);
   const route = await runCmd('route', ['print', '0.0.0.0'], 8000);
   let routeGateway = null;
   for (const raw of route.out.split(/\r?\n/)) {
     const m = raw.trim().match(/^0\.0\.0\.0\s+0\.0\.0\.0\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/);
     if (m) { routeGateway = m[1]; break; }
+  }
+  if (!IS_WIN) {
+    const ln = await linuxNet();
+    wifi = ln.wifi;
+    interfaces = ln.interfaces;
+    ipconfig = ln.ipconfig;
+    if (ln.routeGateway) routeGateway = ln.routeGateway;
   }
   const { active, gateway } = pickActiveIface(ipconfig, routeGateway);
   const hosts = [
@@ -343,9 +444,15 @@ async function runNetworkScan() {
     pings[h.key] = parsePing(r.out);
   }));
   const dnsT0 = performance.now();
-  const nsl = await runCmd('nslookup', ['google.com'], 8000);
-  const dns = parseNslookup(nsl.out);
-  dns.lookupMs = Math.round(performance.now() - dnsT0);
+  let dns;
+  if (IS_WIN) {
+    const nsl = await runCmd('nslookup', ['google.com'], 8000);
+    dns = parseNslookup(nsl.out);
+    dns.lookupMs = Math.round(performance.now() - dnsT0);
+  } else {
+    const ok = await nodeDnsLookup('google.com');
+    dns = { server: CFG.dnsServers[0], address: ok || null, status: ok ? 'ok' : 'failed', lookupMs: Math.round(performance.now() - dnsT0) };
+  }
   const lan = await getLanSpeed();
   const gatewayArp = gateway ? (arpList.find(e => e.ip === gateway) || null) : null; if (gatewayArp) gatewayArp.vendor = vendorFor(gatewayArp.mac);
   const activeIface = active ? {
@@ -640,6 +747,25 @@ async function exportSurveys(format, folderName, ids) {
   return { ok: true, folder: dir, files };
 }
 
+function degradedScan(reason) {
+  return {
+    timestamp: new Date().toISOString(),
+    meta: { liveUnavailable: true, reason: reason || 'scan unavailable on this server' },
+    mode: 'lan',
+    wifi: { available: false, connected: false, data: null },
+    neighbors: [], interfaces: [], ipconfig: [], arp: [], routeGateway: null,
+    connectivity: {
+      gateway: null, gatewayArp: null, hasGateway: false, internetReachable: false,
+      gatewayReachable: false, pings: {}, activeIface: null
+    },
+    dns: { server: null, address: null, status: 'failed', lookupMs: null, tests: [] },
+    mtu: { payload: null, mtu: null, note: 'unavailable' },
+    ipv6: { enabled: false, loopbackOk: false, internetOk: false },
+    trace: { hops: [] },
+    scanDurationMs: 0
+  };
+}
+
 async function runFullScan(signal) {
   const isCancelled = () => signal && signal.cancelled;
   const scan = {
@@ -667,6 +793,13 @@ async function runFullScan(signal) {
   scan.interfaces = parseInterfaces(ifs.out);
   scan.ipconfig = parseIpconfig(ipc.out);
   scan.arp = parseArp(arp.out);
+  if (!IS_WIN) {
+    const ln = await linuxNet();
+    scan.ipconfig = ln.ipconfig;
+    scan.interfaces = ln.interfaces;
+    scan.wifi = ln.wifi;
+    if (ln.routeGateway) scan.routeGateway = ln.routeGateway;
+  }
   if (isCancelled()) return null;
 
   const route = await runCmd('route', ['print', '0.0.0.0'], 8000);
@@ -698,10 +831,16 @@ async function runFullScan(signal) {
   if (isCancelled()) return null;
 
   const dnsT0 = performance.now();
-  const nsl = await runCmd('nslookup', ['google.com'], 8000);
-  const dnsLookupMs = Math.round(performance.now() - dnsT0);
-  const dns = parseNslookup(nsl.out);
-  dns.lookupMs = dnsLookupMs; dns.tests = await dnsLatencyTests([dns.server].concat(CFG.dnsServers));
+  let dns;
+  if (IS_WIN) {
+    const nsl = await runCmd('nslookup', ['google.com'], 8000);
+    dns = parseNslookup(nsl.out);
+    dns.lookupMs = Math.round(performance.now() - dnsT0);
+  } else {
+    const ok = await nodeDnsLookup('google.com');
+    dns = { server: CFG.dnsServers[0], address: ok || null, status: ok ? 'ok' : 'failed', lookupMs: Math.round(performance.now() - dnsT0) };
+  }
+  dns.tests = IS_WIN ? await dnsLatencyTests([dns.server].concat(CFG.dnsServers)) : [];
   if (isCancelled()) return null;
 
   const mtu = await detectMtu(gateway);
@@ -841,8 +980,8 @@ const server = http.createServer(async (req, res) => {
       res.end(JSON.stringify({ ok: true, data }));
     } catch (e) {
       if (res.destroyed) return;
-      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
-      res.end(JSON.stringify({ ok: false, error: String(e && e.message || e) }));
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: true, data: degradedScan(String(e && e.message || e)), degraded: true }));
     } finally {
       scanInProgress = false;
     }
@@ -855,8 +994,8 @@ const server = http.createServer(async (req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ ok: true, data }));
     } catch (e) {
-      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
-      res.end(JSON.stringify({ ok: false, error: String(e && e.message || e) }));
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: true, data: degradedScan(String(e && e.message || e)), degraded: true }));
     }
     return;
   }
