@@ -42,7 +42,7 @@ function pingArgs(host) {
 function traceCmd(host) {
   return IS_WIN
     ? { cmd: 'tracert', args: ['-d', '-h', String(CFG.traceMaxHops), '-w', '1000', host] }
-    : { cmd: 'traceroute', args: ['-m', String(CFG.traceMaxHops), '-w', '1', host] };
+    : { cmd: 'traceroute', args: ['-m', String(Math.min(CFG.traceMaxHops, 15)), '-w', '2', host] };
 }
 
 function parseWlanInterfaces(out) {
@@ -779,26 +779,33 @@ async function runFullScan(signal) {
     routeGateway: null
   };
 
-  const [wlan, nets, ifs, ipc, arp] = await Promise.all([
-    runCmd('netsh', ['wlan', 'show', 'interfaces'], 8000),
-    runCmd('netsh', ['wlan', 'show', 'networks', 'mode=bssid'], 8000),
-    runCmd('netsh', ['interface', 'show', 'interface'], 8000),
-    runCmd('ipconfig', ['/all'], 8000),
-    runCmd('arp', ['-a'], 8000)
-  ]);
-
-  scan.wifi = parseWlanInterfaces(wlan.out);
-  if (scan.wifi && scan.wifi.data) scan.wifi.data.band = inferBand(scan.wifi.data);
-  scan.neighbors = parseNeighbors(nets.out);
-  scan.interfaces = parseInterfaces(ifs.out);
-  scan.ipconfig = parseIpconfig(ipc.out);
-  scan.arp = parseArp(arp.out);
-  if (!IS_WIN) {
+  if (IS_WIN) {
+    const [wlan, nets, ifs, ipc, arp] = await Promise.all([
+      runCmd('netsh', ['wlan', 'show', 'interfaces'], 8000),
+      runCmd('netsh', ['wlan', 'show', 'networks', 'mode=bssid'], 8000),
+      runCmd('netsh', ['interface', 'show', 'interface'], 8000),
+      runCmd('ipconfig', ['/all'], 8000),
+      runCmd('arp', ['-a'], 8000)
+    ]);
+    scan.wifi = parseWlanInterfaces(wlan.out);
+    if (scan.wifi && scan.wifi.data) scan.wifi.data.band = inferBand(scan.wifi.data);
+    scan.neighbors = parseNeighbors(nets.out);
+    scan.interfaces = parseInterfaces(ifs.out);
+    scan.ipconfig = parseIpconfig(ipc.out);
+    scan.arp = parseArp(arp.out);
+    const route = await runCmd('route', ['print', '0.0.0.0'], 8000);
+    for (const raw of route.out.split(/\r?\n/)) {
+      const m = raw.trim().match(/^0\.0\.0\.0\s+0\.0\.0\.0\s+(\d{1,3}(?:\.\d{1,3}){3})/);
+      if (m) { scan.routeGateway = m[1]; break; }
+    }
+  } else {
     const ln = await linuxNet();
-    scan.ipconfig = ln.ipconfig;
-    scan.interfaces = ln.interfaces;
     scan.wifi = ln.wifi;
-    if (ln.routeGateway) scan.routeGateway = ln.routeGateway;
+    scan.neighbors = [];
+    scan.interfaces = ln.interfaces;
+    scan.ipconfig = ln.ipconfig;
+    scan.arp = [];
+    scan.routeGateway = ln.routeGateway;
   }
   if (isCancelled()) return null;
 
@@ -847,7 +854,7 @@ async function runFullScan(signal) {
   const ipv6 = await ipv6Test();
   if (isCancelled()) return null;
   const tc = traceCmd('8.8.8.8');
-  const tr = await runCmd(tc.cmd, tc.args, 60000);
+  const tr = await runCmd(tc.cmd, tc.args, 20000);
   let trace = { hops: [] };
   try { trace = parseTracert(tr.out); } catch (e) { trace = { hops: [], error: String((e && e.message) || e) }; }
 
@@ -970,18 +977,24 @@ const server = http.createServer(async (req, res) => {
     try {
       const data = await runFullScan(scanSignal);
       if (!data || res.destroyed) return;
-      data.id = newSurveyId();
-      const hist = readHistory();
-      hist.unshift({ id: data.id, data });
-      if (hist.length > HISTORY_LIMIT) hist.length = HISTORY_LIMIT;
-      writeHistory(hist);
+      try {
+        data.id = newSurveyId();
+        const hist = readHistory();
+        hist.unshift({ id: data.id, data });
+        if (hist.length > HISTORY_LIMIT) hist.length = HISTORY_LIMIT;
+        writeHistory(hist);
+      } catch (he) {
+        console.error('[scan] history save failed (non-fatal):', he && (he.stack || he.message) || he);
+      }
       if (res.destroyed) return;
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ ok: true, data }));
     } catch (e) {
       if (res.destroyed) return;
+      const msg = (e && (e.stack || e.message)) ? String(e.stack || e.message) : ('throw:' + String(e));
+      console.error('[scan] /api/scan failed:', msg);
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-      res.end(JSON.stringify({ ok: true, data: degradedScan(String(e && e.message || e)), degraded: true }));
+      res.end(JSON.stringify({ ok: true, data: degradedScan(msg), degraded: true, error: msg }));
     } finally {
       scanInProgress = false;
     }
@@ -994,8 +1007,10 @@ const server = http.createServer(async (req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(JSON.stringify({ ok: true, data }));
     } catch (e) {
+      const msg = (e && (e.stack || e.message)) ? String(e.stack || e.message) : ('throw:' + String(e));
+      console.error('[scan] /api/network failed:', msg);
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-      res.end(JSON.stringify({ ok: true, data: degradedScan(String(e && e.message || e)), degraded: true }));
+      res.end(JSON.stringify({ ok: true, data: degradedScan(msg), degraded: true, error: msg }));
     }
     return;
   }
@@ -1204,3 +1219,5 @@ server.listen(PORT, BIND, () => {
 process.on('uncaughtException', (e) => {
   console.error('Uncaught:', e && e.message);
 });
+
+

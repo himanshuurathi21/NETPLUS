@@ -1043,16 +1043,17 @@
 
   function renderLive(data, analysis) {
     if (data.meta && data.meta.liveUnavailable) {
-      $('osiIndicator').textContent = 'Live scan not available on this server';
+      $('osiIndicator').textContent = 'Live scan unavailable on this server';
       $('osiIndicator').className = 'osi-indicator sev-Low';
-      $('faultPanel').innerHTML = '<div class="placeholder">' + esc(data.meta.reason || 'Live network scan requires Windows. This hosted instance runs on Linux.') + '</div>';
+      const reason = data.meta.reason || 'Live network scan could not run on this server.';
+      $('faultPanel').innerHTML = '<div class="placeholder">' + esc(reason) + '</div>';
       drawTopology($('topologyCanvas'), data);
-      drawGauge($('signalCanvas'), null, 'No signal (server OS)');
+      drawGauge($('signalCanvas'), null, 'No signal');
       $('signalMeta').textContent = 'Live scan unavailable on this server';
       const nt = $('neighborTable').querySelector('tbody');
-      if (nt) nt.innerHTML = '<tr><td colspan="4" style="color:#7d93ad;text-align:center;padding:14px">Not available on this server OS.</td></tr>';
+      if (nt) nt.innerHTML = '<tr><td colspan="4" style="color:#7d93ad;text-align:center;padding:14px">Not available on this server.</td></tr>';
       drawTrace($('traceCanvas'), data, 'Traceroute (unavailable)');
-      $('evidenceBox').textContent = 'Live scan is only available when NetPlus AI runs on Windows.\nRun the app locally on Windows for full network diagnostics.';
+      $('evidenceBox').textContent = 'Live scan could not run on this server environment.\n' + reason;
       return;
     }
     renderFaults($('faultPanel'), $('osiIndicator'), analysis);
